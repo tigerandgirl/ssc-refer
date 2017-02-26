@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "no-alert": 0
+  },
+  "globals": {
+    "classNames": false,
+    "React": false,
+    "ReactDOM": false,
+
+    "Form": false,
+    "Grid": false,
+    "Refer": false,
+    "ReferNew": false,
+    "ReferComp": false,
+
+    "bootstrapUtils": false,
+
+    "mountNode": false
+
+  }
+}
