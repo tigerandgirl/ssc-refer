@@ -1,8 +1,6 @@
-# SSC-Comp [![Travis][build-badge]][build] [![AppVeyor][appveyor-badge]][appveyor] [![npm][npm-badge]][npm] [![Codecov][codecov-badge]][codecov]
 
 SSC 3.0 Refer组件
 
-# ![](screenshot_20170124_012.jpg)
 
 ## 使用
 
