@@ -14,7 +14,7 @@ npm install ssc-refer --save
 
 [API文档][documentation]中带有示例代码，并且可以在线编辑并运行代码。
 
-[documentation]: https://ssc-grid.github.io
+[documentation]: https://ssc-refer.github.io
 [contributing]: CONTRIBUTING.md
 
 [build-badge]: https://travis-ci.org/yyssc/ssc-grid.svg?branch=master
