@@ -15,6 +15,7 @@ import FormSection from './sections/FormSection';
 
 import ReferSection from './sections/ReferSection';
 import ReferCompSection from './sections/ReferCompSection';
+import ReferTreeSection from './sections/ReferTreeSection';
 
 
 // order matters
@@ -25,6 +26,7 @@ const sections = {
   form: '#form',
   refer: '#refer',
   refercomp: '#refercomp',
+  refertree: '#refertree',
 };
 /* eslint-enable indent */
 
@@ -154,6 +156,9 @@ const ComponentsPage = React.createClass({
               {this.renderScrollSpy(sections.refercomp)}
               <ReferCompSection />
 
+              {this.renderScrollSpy(sections.refertree)}
+              <ReferTreeSection />
+
 
             </div>
 
@@ -184,6 +189,7 @@ const ComponentsPage = React.createClass({
                     <SubNav href={sections.refer} text="Refer">
                       <NavItem href={sections.refer}>参照</NavItem>
                       <NavItem href={sections.refercomp}>高级参照</NavItem>
+                      <NavItem href={sections.refertree}>树形参照</NavItem>
                     </SubNav>
                   </Nav>
 

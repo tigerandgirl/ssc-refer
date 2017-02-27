@@ -27,8 +27,8 @@ import {DOWN, ESC, RETURN, TAB, UP} from './utils/keyCode';
 /**
  * Refer
  */
-const Refer = React.createClass({
-  displayName: 'Refer',
+const Refers = React.createClass({
+  displayName: 'Refers',
 
   propTypes: {
     /**
@@ -275,17 +275,7 @@ const Refer = React.createClass({
       </div>
     );
   },
-
-  _displayRefOrMenu() {
-    const {text} = this.state;
-    if(text.length >= 2) {
-      this.setState({isAvobe:throttle(false, 100)});
-    } else {
-      this.setState({isAvobe:throttle(true, 100)});
-    }
-
-  },
-
+  
   _getFilteredResults() {
     const {
       caseSensitive,
@@ -369,7 +359,6 @@ const Refer = React.createClass({
 
     return (
       <span className="input-group">
-        <OverlayTrigger trigger="focus" placement="top" overlay={popoverFocus}>
           <Input
             {...inputProps}
             activeIndex={activeIndex}
@@ -396,7 +385,6 @@ const Refer = React.createClass({
             selected={selected.slice()}
             value={getInputText({activeItem, labelKey, multiple, selected, text})}
           />
-        </OverlayTrigger>
         <span className="input-group-addon ">
           <span className="glyphicon glyphicon-search"></span>
         </span>
@@ -404,100 +392,6 @@ const Refer = React.createClass({
     );
   },
 
-  _renderReferContent(results, shouldPaginate) {
-    const {
-      align,
-      bodyContainer,
-      emptyLabel,
-      labelKey,
-      maxHeight,
-      minLength,
-      newSelectionPrefix,
-      paginationText,
-      renderMenu,
-      renderMenuItemChildren,
-    } = this.props;
-
-    const {showMenu, text} = this.state;
-    const dropup = true;
-    const menuProps = {
-      align,
-      dropup,
-      emptyLabel,
-      labelKey,
-      maxHeight,
-      newSelectionPrefix,
-      paginationText,
-      onPaginate: this._handlePagination,
-      paginate: shouldPaginate,
-      text,
-    };
-
-    const menu = renderMenu ?
-      renderMenu(results, menuProps) :
-      <TypeaheadMenu
-        {...menuProps}
-        options={results}
-        renderMenuItemChildren={renderMenuItemChildren}
-      />;
-
-    return (
-      <Overlay
-        container={bodyContainer ? document.body : this}
-        show={showMenu && text.length >= 0}
-        target={() => this.refs.input}>
-        {menu}
-      </Overlay>
-    );
-  },
-
-  _renderRefContent(results, shouldPaginate) {
-    const {
-      align,
-      bodyContainer,
-      dropup,
-      emptyLabel,
-      labelKey,
-      maxHeight,
-      minLength,
-      newSelectionPrefix,
-      paginationText,
-      renderMenu,
-      renderMenuItemChildren,
-    } = this.props;
-
-    const {showMenu, text} = this.state;
-
-    const menuProps = {
-      align,
-      dropup,
-      emptyLabel,
-      labelKey,
-      maxHeight,
-      newSelectionPrefix,
-      paginationText,
-      onPaginate: this._handlePagination,
-      paginate: shouldPaginate,
-      text,
-    };
-
-    const menu = renderMenu ?
-      renderMenu(results, menuProps) :
-      <TypeaheadMenu
-        {...menuProps}
-        options={results}
-        renderMenuItemChildren={renderMenuItemChildren}
-      />;
-
-    return (
-      <Overlay
-        container={bodyContainer ? document.body : this}
-        show={showMenu && text.length == 0}
-        target={() => this.refs.input}>
-        {menu}
-      </Overlay>
-    );
-  },
 
   _renderMenu(results, shouldPaginate) {
     const {
@@ -743,4 +637,4 @@ const Refer = React.createClass({
   },
 });
 
-export default onClickOutside(Refer);
+export default onClickOutside(Refers);

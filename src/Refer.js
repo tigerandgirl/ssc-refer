@@ -51,7 +51,7 @@ class Refer extends Component {
     let tempState = this.props.sourceData.find(item => item.id === target.value);
 
     this.setState({selectedData: tempState});
-    this.props.onChange(tempState);
+    this.props.onChange(tempState,event);
   }
 
   render() {

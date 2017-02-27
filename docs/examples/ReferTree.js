@@ -2,7 +2,7 @@
  * Created by Tiger on 17/2/15.
  */
 
-const treeData = [
+const options = [
   {
     pid: '',
     id: 'virual_root',
@@ -40,24 +40,46 @@ const treeData = [
   }
 ];
 
-
-const ReferExample = React.createClass({
+const ReferTreeExample = React.createClass({
   getInitialState() {
     return {
+      disabled: false,
+      dropup: true,
+      minLength: 0,
+      align: 'justify',
     };
   },
 
-  handleChange(value,event) {
-    alert(JSON.stringify(event));
-    alert(JSON.stringify(value));
+  render() {
+    const {emptyLabel} = this.state;
+
+    return (
+      <div>
+        <Refers
+          {...this.state}
+          emptyLabel={emptyLabel ? '' : undefined}
+          labelKey="name"
+          multiple
+          options={options}
+          placeholder="Choose a state..."
+        />
+
+      </div>
+    );
   },
 
-  render() {
-    return (
-      <Refer ref="myref" onChange={this.handleChange} sourceData={treeData} defaultData={treeData[0]} />
-    );
-  }
+  _handleChange(e) {
+    const {checked, name} = e.target;
+    const newState = {[name]: checked};
+
+    if (name === 'minLength') {
+      newState.minLength = checked ? 2 : 0;
+    }
+
+    this.setState(newState);
+  },
 
 });
 
-ReactDOM.render(<ReferExample />, mountNode);
+ReactDOM.render(<ReferTreeExample />, mountNode);
+

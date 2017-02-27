@@ -14,7 +14,7 @@ const DEFAULT_DELAY_MS = 200;
  *  - Query caching (optional)
  *  - Search prompt and empty results behaviors
  */
-const referContainer = Refer => {
+const referContainer = Refers => {
   let _cache = {};
 
   return React.createClass({
@@ -96,7 +96,7 @@ const referContainer = Refer => {
       const cachedQuery = _cache[this.state.query];
 
       return (
-        <Refer
+        <Refers
           {...props}
           emptyLabel={this._getEmptyLabel()}
           isLoading={this.state.requestPending}

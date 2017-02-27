@@ -7,4 +7,5 @@ export default {
   FormBasic:                     require('fs').readFileSync(__dirname + '/../examples/FormBasic.js', 'utf8'),
   ReferBasic:                    require('fs').readFileSync(__dirname + '/../examples/ReferBasic.js', 'utf8'),
   ReferComp:                    require('fs').readFileSync(__dirname + '/../examples/ReferComp.js', 'utf8'),
+  ReferTree:                    require('fs').readFileSync(__dirname + '/../examples/ReferTree.js', 'utf8'),
 };

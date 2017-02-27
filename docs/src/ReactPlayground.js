@@ -17,6 +17,7 @@ const Form = require('../../src/Form');
 
 const Refer = require('../../src/Refer');
 const ReferComp = require('../../src/refer/ReferComp');
+const Refers = require('../../src/refer/Refers');
 
 const bootstrapUtils = require('react-bootstrap/lib/utils/bootstrapUtils');
 
