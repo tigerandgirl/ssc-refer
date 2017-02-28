@@ -446,7 +446,7 @@ const Refers = React.createClass({
         container={bodyContainer ? document.body : this}
         show={showMenu && text.length >= minLength}
         target={() => this.refs.input}>
-        {list}
+        {menu}
       </Overlay>
     );
   },
