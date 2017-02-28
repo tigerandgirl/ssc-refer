@@ -13,6 +13,8 @@ import TokenizerInput from './TokenizerInput.react';
 import TypeaheadInput from './TypeaheadInput.react';
 import TypeaheadMenu from './TypeaheadMenu.react';
 
+import ReferList from './ReferList.react';
+
 import addCustomOption from './utils/addCustomOption';
 import defaultFilterBy from './utils/defaultFilterBy';
 import getHintText from './utils/getHintText';
@@ -431,12 +433,20 @@ const Refers = React.createClass({
         renderMenuItemChildren={renderMenuItemChildren}
       />;
 
+    const list = renderMenu ?
+      renderMenu(results, menuProps) :
+      <ReferList
+        {...menuProps}
+        options={results}
+        renderMenuItemChildren={renderMenuItemChildren}
+      />;
+
     return (
       <Overlay
         container={bodyContainer ? document.body : this}
         show={showMenu && text.length >= minLength}
         target={() => this.refs.input}>
-        {menu}
+        {list}
       </Overlay>
     );
   },
