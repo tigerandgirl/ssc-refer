@@ -10,9 +10,6 @@ import PageHeader from './PageHeader';
 import PageFooter from './PageFooter';
 import SubNav from './SubNav';
 
-import GridSection from './sections/GridSection';
-import FormSection from './sections/FormSection';
-
 import ReferSection from './sections/ReferSection';
 import ReferCompSection from './sections/ReferCompSection';
 import ReferTreeSection from './sections/ReferTreeSection';
@@ -22,8 +19,6 @@ import ReferTreeSection from './sections/ReferTreeSection';
 /* eslint-disable indent */
 const sections = {
   layout: '#page-layout',
-  grid: '#grid',
-  form: '#form',
   refer: '#refer',
   refercomp: '#refercomp',
   refertree: '#refertree',
@@ -144,11 +139,6 @@ const ComponentsPage = React.createClass({
                 <p className="lead"></p>
               </div>
 
-              {this.renderScrollSpy(sections.grid)}
-              <GridSection />
-
-              {this.renderScrollSpy(sections.form)}
-              <FormSection />
 
               {this.renderScrollSpy(sections.refer)}
               <ReferSection />
@@ -177,14 +167,6 @@ const ComponentsPage = React.createClass({
                     activeHref={this.state.activeNavItemHref}
                     onSelect={this.handleNavItemSelect}
                   >
-
-                    <SubNav href={sections.layout} text="页面布局">
-                      <NavItem href={sections.grid}>Grid组件（表格组件）</NavItem>
-                    </SubNav>
-
-                    <SubNav href={sections.form} text="Forms">
-                      <NavItem href={sections.formBasic}>表单</NavItem>
-                    </SubNav>
 
                     <SubNav href={sections.refer} text="Refer">
                       <NavItem href={sections.refer}>参照</NavItem>
