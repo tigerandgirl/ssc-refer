@@ -3,6 +3,8 @@
 import cx from 'classnames';
 import React, {Children, PropTypes} from 'react';
 
+import {Breadcrumb} from 'react-bootstrap';
+
 import {BaseMenuItem} from './MenuItem.react';
 
 const BaseMenu = props => (
@@ -74,7 +76,17 @@ const List = React.createClass({
           'dropdown-menu-right': align === 'right',
         }, className)}
         style={this._getMenuStyle()}>
-        <h2>this is a List</h2>
+        <Breadcrumb>
+          <Breadcrumb.Item href="#">
+            Home
+          </Breadcrumb.Item>
+          <Breadcrumb.Item href="http://getbootstrap.com/components/#breadcrumbs">
+            Library
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            Data
+          </Breadcrumb.Item>
+        </Breadcrumb>
         {this._renderPaginationMenuItem()}
       </BaseMenu>
     );
