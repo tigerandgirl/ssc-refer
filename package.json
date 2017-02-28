@@ -131,6 +131,6 @@
   },
   "release-script": {
     "defaultDryRun": true,
-    "docsRepo": "git@github.com:ssc-comp/ssc-refer.github.io.git"
+    "docsRepo": "git@github.com:ssc-refer/ssc-refer.github.io.git"
   }
 }
