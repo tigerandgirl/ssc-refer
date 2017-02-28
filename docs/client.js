@@ -18,6 +18,12 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/solarized.css';
 import './assets/CodeMirror.css';
 
+import '../css/ClearButton.css';
+import '../css/Loader.css';
+import '../css/Token.css';
+import '../css/Typeahead.css';
+
+
 import './assets/carousel.png';
 import './assets/logo.png';
 import './assets/favicon.ico';
