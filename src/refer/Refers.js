@@ -165,7 +165,6 @@ const Refers = React.createClass({
       onInputChange: noop,
       paginate: true,
       selected: [],
-      showRefContent: true,
     };
   },
 
@@ -199,7 +198,6 @@ const Refers = React.createClass({
       initialItem: null,
       selected,
       showMenu: false,
-      showRefContent: true,
       shownResults: maxResults,
       text: '',
       isAbove: true,
@@ -351,13 +349,6 @@ const Refers = React.createClass({
     const {activeIndex, activeItem, initialItem, selected, text} = this.state;
     const Input = multiple ? TokenizerInput : TypeaheadInput;
     const inputProps = {bsSize, disabled, name, placeholder, renderToken};
-
-    const popoverFocus = (
-      <Popover id="popover-trigger-focus" >
-        <strong>Refer display zoneRefer display zoneRefer display zoneRefer display zoneRefer display zone</strong>
-
-      </Popover>
-    );
 
     return (
       <span className="input-group">

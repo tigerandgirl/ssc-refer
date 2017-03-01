@@ -89,37 +89,41 @@ const List = React.createClass({
         </Breadcrumb>
         <div className="col-md-6">
           <ul className="refer_list ul-list2">
-            <li className="openLi">flsfjdlkajklf <span className="glyphicon glyphicon-menu-right"></span></li>
-            <li className="openLi"><img src="/assets/danxuan_1.png" className="selected" /> <span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span> <span className="glyphicon glyphicon-menu-right"></span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
           </ul>
         </div>
         <div className="col-md-6">
           <ul className="refer_list ul-list2">
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi"><span>flsfjdlkajklf</span></li>
-            <li className="openLi">flsfjdlkajklf <span className="glyphicon glyphicon-menu-right"></span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span> <span className="glyphicon glyphicon-menu-right"></span></li>
           </ul>
         </div>
         {this._renderPaginationMenuItem()}

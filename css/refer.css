@@ -39,7 +39,7 @@ ul.refer_list .openLi {
     background: none;
 }
 ul.refer_list .openLi:hover {
-    font-weight: lighter;
+    font-weight: bold;
 }
 ul.refer_list .openLi span.hoverBackground:hover,
 ul.refer_list .openLi span:hover {
@@ -85,6 +85,16 @@ ul.ul_list2 span.button.chk.radio_false_part_focus:hover {
     background: url(../css-images/danxuan_2.png) no-repeat !important;
 }
 ul.ul_list2 span.button.chk.radio_true_part_focus:hover {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_2.png) no-repeat !important;
+}
+ul.ul_list2 span .danxunbtn {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_1.png) no-repeat !important;
+}
+ul.ul_list2 span .danxunbtn:hover {
     width: 20px !important;
     height: 20px !important;
     background: url(../css-images/danxuan_2.png) no-repeat !important;
