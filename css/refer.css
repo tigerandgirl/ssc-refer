@@ -1,0 +1,91 @@
+ul.refer_list li:hover {
+    font-weight: bold
+}
+ul.refer_list li.selected {
+    /*font-weight: bold*/
+    background: none;
+}
+
+ul.refer_list {
+    overflow: hidden;
+    zoom: 1;
+    /*margin-left: 6px;*/
+    *margin-left: 6px;
+    margin-left: 6 px\9;
+    _margin-left: 1px;
+    cursor: pointer;
+}
+
+ul.refer_list li {
+    text-align: left;
+    width: 65px;
+    overflow: hidden;
+    margin: 0px 6px 0 6px;
+    /*padding-top:5px;*/
+    color: #333333
+}
+
+ul.refer_list .openLi {
+    text-align: left;
+    float: left;
+    /*width: 155px;
+     *margin: 0px 6px 0 6px;*/
+    width: 280px;
+    height: 25px;
+    overflow: hidden;
+    margin: 0px 0px 0 20px;
+    /*padding-top:5px;*/
+    color: #333333;
+    background: none;
+}
+ul.refer_list .openLi:hover {
+    font-weight: lighter;
+}
+ul.refer_list .openLi span.hoverBackground:hover,
+ul.refer_list .openLi span:hover {
+    background-color: #EEEEEE;
+}
+
+ul.ul_list2 span.button.chk.radio_false_full,
+ul.ul_list2 span.button.chk.radio_false_disable {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_1.png) no-repeat !important;
+}
+
+ul.ul_list2 span.button.chk.radio_true_full {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_1.png) no-repeat !important;
+}
+ul.ul_list2 span.button.chk.radio_false_part {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_1.png) no-repeat !important;
+}
+ul.ul_list2 span.button.chk.radio_true_part {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_1.png) no-repeat !important;
+}
+
+ul.ul_list2 span.button.chk.radio_false_full_focus:hover {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_2.png) no-repeat !important;
+}
+ul.ul_list2 span.button.chk.radio_true_full_focus:hover {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_2.png) no-repeat !important;
+}
+ul.ul_list2 span.button.chk.radio_false_part_focus:hover {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_2.png) no-repeat !important;
+}
+ul.ul_list2 span.button.chk.radio_true_part_focus:hover {
+    width: 20px !important;
+    height: 20px !important;
+    background: url(../css-images/danxuan_2.png) no-repeat !important;
+}

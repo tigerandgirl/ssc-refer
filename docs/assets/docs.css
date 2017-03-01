@@ -391,7 +391,7 @@ body {
   color: #fff !important;
 }
 .carbonad #azcarbon > img {
-  display: none; /* hide what I assume are tracking images */
+  display: none; /* hide what I assume are tracking css-images */
 }
 
 @media (min-width: 480px) {
