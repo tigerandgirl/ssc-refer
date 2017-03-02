@@ -141,6 +141,19 @@ const Refers = React.createClass({
      * to control the component via its parent.
      */
     selected: PropTypes.array,
+    /**
+     * refer options colmuns,conditions,sort
+     */
+    referOptions: PropTypes.Object,
+    /**
+     * referUrl
+     */
+    referUrl: PropTypes.string,
+    /**
+     * refer type
+     */
+    referType: PropTypes.string,
+
   },
 
   getDefaultProps() {
@@ -351,7 +364,7 @@ const Refers = React.createClass({
     const inputProps = {bsSize, disabled, name, placeholder, renderToken};
 
     return (
-      <span className="input-group">
+      <div className="input-group">
           <Input
             {...inputProps}
             activeIndex={activeIndex}
@@ -381,7 +394,7 @@ const Refers = React.createClass({
         <span className="input-group-addon ">
           <span className="glyphicon glyphicon-search"></span>
         </span>
-      </span>
+      </div>
     );
   },
 
@@ -431,6 +444,7 @@ const Refers = React.createClass({
         options={results}
         renderMenuItemChildren={renderMenuItemChildren}
       />;
+
 
     return (
       <Overlay

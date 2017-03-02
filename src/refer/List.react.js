@@ -5,8 +5,6 @@ import React, {Children, PropTypes} from 'react';
 
 import {Breadcrumb} from 'react-bootstrap';
 
-import {BaseMenuItem} from './MenuItem.react';
-
 const BaseMenu = props => (
   <ul
     {...props}
@@ -63,11 +61,7 @@ const List = React.createClass({
       return null;
     }
 
-    const contents = noResults ?
-      <BaseMenuItem disabled>
-        {emptyLabel}
-      </BaseMenuItem> :
-      children;
+    const contents = children;
 
     return (
       <BaseMenu
@@ -76,82 +70,9 @@ const List = React.createClass({
           'dropdown-menu-right': align === 'right',
         }, className)}
         style={this._getMenuStyle()}>
-        <Breadcrumb>
-          <Breadcrumb.Item href="#">
-            Home
-          </Breadcrumb.Item>
-          <Breadcrumb.Item href="http://getbootstrap.com/components/#breadcrumbs">
-            Library
-          </Breadcrumb.Item>
-          <Breadcrumb.Item active>
-            Data
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        <div className="col-md-6">
-          <ul className="refer_list ul-list2">
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span> <span className="glyphicon glyphicon-menu-right"></span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-          </ul>
-        </div>
-        <div className="col-md-6">
-          <ul className="refer_list ul-list2">
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="openLi"><span className="hoverBackground">flsfjdlkajklf</span> <span className="glyphicon glyphicon-menu-right"></span></li>
-          </ul>
-        </div>
-        {this._renderPaginationMenuItem()}
+        {contents}
       </BaseMenu>
     );
-  },
-
-  /**
-   * Allow user to see more results, if available.
-   */
-  _renderPaginationMenuItem() {
-    const {children, onPaginate, paginate, paginationText} = this.props;
-
-    if (paginate && Children.count(children)) {
-      return [
-        <li
-          className="divider"
-          key="pagination-item-divider"
-          role="separator"
-        />,
-        <BaseMenuItem
-          className="bootstrap-typeahead-menu-paginator"
-          key="pagination-item"
-          onClick={onPaginate}>
-          {paginationText}
-        </BaseMenuItem>,
-      ];
-    }
   },
 
   _getMenuStyle() {

@@ -1,15 +1,12 @@
 'use strict';
 
-import {pick} from 'lodash';
-import Highlight from 'react-highlighter';
+import {pick,filter} from 'lodash';
 import React, {PropTypes} from 'react';
 
 import List from './List.react';
-import MenuItem from './MenuItem.react';
 
-import getOptionLabel from './utils/getOptionLabel';
+import {Breadcrumb} from 'react-bootstrap';
 
-const MATCH_CLASS = 'bootstrap-typeahead-highlight';
 
 const ReferList = React.createClass({
   displayName: 'ReferList',
@@ -42,6 +39,17 @@ const ReferList = React.createClass({
     };
   },
 
+  getInitialState() {
+    const {options} = this.props;
+    let defaultNav = filter(options,{"pid": ""});
+    let defaultContent = filter(options,function (item) {item.pid === defaultNav[0].id});
+
+    return {
+      navList: defaultNav,
+      contentList: defaultContent,
+    };
+  },
+
   render() {
     const menuProps = pick(this.props, [
       'align',
@@ -57,47 +65,54 @@ const ReferList = React.createClass({
 
     return (
       <List {...menuProps}>
-        {this.props.options.map(this._renderMenuItem)}
+        {this._renderNavBar(this.state.navList)}
+        {this._renderListContent(this.state.contentList)}
       </List>
     );
   },
 
-  _renderMenuItem(option, idx) {
-    const {
-      labelKey,
-      newSelectionPrefix,
-      renderMenuItemChildren,
-      text,
-    } = this.props;
+  _renderNavBar(dataList) {
+    const navBar =
+      <Breadcrumb>
+        {
+          dataList.map((item) => {
+            return(
+              <Breadcrumb.Item href="#">
+                {item.name}
+              </Breadcrumb.Item>
+            );
+          })
+        }
+    </Breadcrumb>;
 
-    const menuItemProps = {
-      disabled: option.disabled,
-      key: idx,
-      option,
-      position: idx,
-    };
-
-    if (option.customOption) {
-      return (
-        <MenuItem {...menuItemProps}>
-          {newSelectionPrefix}
-          <Highlight matchClass={MATCH_CLASS} search={text}>
-            {option[labelKey]}
-          </Highlight>
-        </MenuItem>
-      );
-    }
-
-    return renderMenuItemChildren ?
-      <MenuItem {...menuItemProps}>
-        {renderMenuItemChildren(option, this.props, idx)}
-      </MenuItem> :
-      <MenuItem {...menuItemProps}>
-        <Highlight matchClass={MATCH_CLASS} search={text}>
-          {getOptionLabel(option, labelKey)}
-        </Highlight>
-      </MenuItem>;
+    return navBar;
   },
+
+  _renderListContent(dataList) {
+
+    return (
+        <div>
+          <ul className="refer_list ul-list2">
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span> <span className="glyphicon glyphicon-menu-right"></span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">doglkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+          </ul>
+        </div>
+
+    );
+  },
+
 });
 
 export default ReferList;

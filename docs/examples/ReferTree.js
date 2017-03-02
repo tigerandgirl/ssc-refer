@@ -61,6 +61,7 @@ const ReferTreeExample = React.createClass({
           labelKey="name"
           multiple
           options={options}
+          onChange={this._handleChange}
           placeholder="Choose a state..."
         />
 
@@ -68,15 +69,8 @@ const ReferTreeExample = React.createClass({
     );
   },
 
-  _handleChange(e) {
-    const {checked, name} = e.target;
-    const newState = {[name]: checked};
-
-    if (name === 'minLength') {
-      newState.minLength = checked ? 2 : 0;
-    }
-
-    this.setState(newState);
+  _handleChange(selected) {
+    alert(JSON.stringify(selected));
   },
 
 });
