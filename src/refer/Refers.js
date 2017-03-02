@@ -141,18 +141,6 @@ const Refers = React.createClass({
      * to control the component via its parent.
      */
     selected: PropTypes.array,
-    /**
-     * refer options colmuns,conditions,sort
-     */
-    referOptions: PropTypes.Object,
-    /**
-     * referUrl
-     */
-    referUrl: PropTypes.string,
-    /**
-     * refer type
-     */
-    referType: PropTypes.string,
 
   },
 

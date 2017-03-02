@@ -42,7 +42,7 @@ const ReferList = React.createClass({
   getInitialState() {
     const {options} = this.props;
     let defaultNav = filter(options,{"pid": ""});
-    let defaultContent = filter(options,function (item) {item.pid === defaultNav[0].id});
+    let defaultContent = filter(options,function (item) {return item.pid === defaultNav[0].id});
 
     return {
       navList: defaultNav,
@@ -93,20 +93,15 @@ const ReferList = React.createClass({
     return (
         <div>
           <ul className="refer_list ul-list2">
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span> <span className="glyphicon glyphicon-menu-right"></span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">doglkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
-            <li className="col-md-6 openLi"><span className="hoverBackground">flsfjdlkajklf</span></li>
+            {
+              dataList.map((item) => {
+                return(
+                  <li className="col-md-6 openLi">
+                    <span className="hoverBackground">{item.name}</span>
+                  </li>
+                );
+              })
+            }
           </ul>
         </div>
 
