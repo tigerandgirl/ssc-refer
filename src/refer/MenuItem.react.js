@@ -33,7 +33,6 @@ const BaseMenuItem = React.createClass({
 
   _handleClick(e) {
     const {disabled, onClick} = this.props;
-
     e.preventDefault();
     !disabled && onClick(e);
   },

@@ -589,7 +589,7 @@ const Refers = React.createClass({
       text,
     });
     this._hideDropdown();
-
+    debugger;
     onChange(selected);
     onInputChange(text);
   },

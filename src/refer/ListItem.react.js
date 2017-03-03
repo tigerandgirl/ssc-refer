@@ -7,7 +7,7 @@ import React from 'react';
 import menuItemContainer from '../containers/menuItemContainer';
 
 const BaseListItem = React.createClass({
-  displayName: 'BaseMenuItem',
+  displayName: 'BaseListItem',
 
   getDefaultProps() {
     return {
@@ -19,15 +19,13 @@ const BaseListItem = React.createClass({
     const {active, children, className, disabled} = this.props;
 
     return (
-      <li
-        className={cx({
-          'active': active,
-          'disabled': disabled,
-        }, className)}>
-        <a onClick={this._handleClick} role="button">
-          {children}
-        </a>
+      <li className={cx({
+        'active': active,
+        'disabled': disabled,
+      }, className)}>
+        <span className="hoverBackground" onClick={this._handleClick}>{children}</span>
       </li>
+
     );
   },
 

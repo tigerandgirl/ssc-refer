@@ -1,12 +1,17 @@
 'use strict';
 
 import {pick,filter} from 'lodash';
+import Highlight from 'react-highlighter';
 import React, {PropTypes} from 'react';
 
 import List from './List.react';
+import ListItem from './ListItem.react';
+
+import getOptionLabel from './utils/getOptionLabel';
 
 import {Breadcrumb} from 'react-bootstrap';
 
+const MATCH_CLASS = 'bootstrap-typeahead-highlight';
 
 const ReferList = React.createClass({
   displayName: 'ReferList',
@@ -66,7 +71,7 @@ const ReferList = React.createClass({
     return (
       <List {...menuProps}>
         {this._renderNavBar(this.state.navList)}
-        {this._renderListContent(this.state.contentList)}
+        {this.state.contentList.map(this._renderListItem)}
       </List>
     );
   },
@@ -106,6 +111,45 @@ const ReferList = React.createClass({
         </div>
 
     );
+  },
+
+  _renderListItem(option,idx) {
+    const {
+      labelKey,
+      newSelectionPrefix,
+      renderMenuItemChildren,
+      text,
+    } = this.props;
+
+    const menuItemProps = {
+      disabled: option.disabled,
+      key: idx,
+      option,
+      position: idx,
+      className: 'col-md-6 openLi',
+    };
+
+    if (option.customOption) {
+      return (
+        <ListItem {...menuItemProps}>
+          {newSelectionPrefix}
+          <Highlight matchClass={MATCH_CLASS} search={text}>
+            {option[labelKey]}
+          </Highlight>
+        </ListItem>
+      );
+    }
+
+    return renderMenuItemChildren ?
+      <ListItem {...menuItemProps}>
+        {renderMenuItemChildren(option, this.props, idx)}
+      </ListItem> :
+      <ListItem {...menuItemProps}>
+        <Highlight matchClass={MATCH_CLASS} search={text}>
+          {getOptionLabel(option, labelKey)}
+        </Highlight>
+      </ListItem>;
+
   },
 
 });

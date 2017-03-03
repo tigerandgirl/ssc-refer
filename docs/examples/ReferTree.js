@@ -62,7 +62,7 @@ const ReferTreeExample = React.createClass({
           multiple
           options={options}
           onChange={this._handleChange}
-          placeholder="Choose a state..."
+          placeholder="请选择..."
         />
 
       </div>
