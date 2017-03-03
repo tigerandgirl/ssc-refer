@@ -23,7 +23,10 @@ import getOptionLabel from './utils/getOptionLabel';
 import getTruncatedOptions from './utils/getTruncatedOptions';
 import warn from './utils/warn';
 
+import request from 'superagent';
+
 import {DOWN, ESC, RETURN, TAB, UP} from './utils/keyCode';
+
 
 
 /**
@@ -64,18 +67,6 @@ const Refers = React.createClass({
      * Specify whether the menu should appear above the input.
      */
     dropup: PropTypes.bool,
-    /**
-     * Either an array of fields in `option` to search, or a custom filtering
-     * callback.
-     */
-    filterBy: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.string.isRequired),
-      PropTypes.func,
-    ]),
-    /**
-     * Whether the filter should ignore accents and other diacritical marks.
-     */
-    ignoreDiacritics: PropTypes.bool,
     /**
      * Indicate whether an asynchromous data fetch is happening.
      */
@@ -120,14 +111,6 @@ const Refers = React.createClass({
      */
     onInputChange: PropTypes.func,
     /**
-     * Full set of options, including pre-selected options. Must either be an
-     * array of objects (recommended) or strings.
-     */
-    options: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.object.isRequired),
-      PropTypes.arrayOf(PropTypes.string.isRequired),
-    ]).isRequired,
-    /**
      * Give user the ability to display additional results if the number of
      * results exceeds `maxResults`.
      */
@@ -141,6 +124,13 @@ const Refers = React.createClass({
      * to control the component via its parent.
      */
     selected: PropTypes.array,
+    /**
+     * set refConditions ,for example `{"refCode":"dept","refType":"tree","rootName":"部门"}`
+     */
+    refConditions: PropTypes.oneOfType([
+      PropTypes.objectOf(PropTypes.object.isRequired),
+      PropTypes.objectOf(PropTypes.string.isRequired),
+    ]).isRequired,
 
   },
 
@@ -153,8 +143,6 @@ const Refers = React.createClass({
       clearButton: false,
       defaultSelected: [],
       dropup: false,
-      filterBy: [],
-      ignoreDiacritics: true,
       isLoading: false,
       labelKey: 'label',
       maxResults: 100,
@@ -202,23 +190,15 @@ const Refers = React.createClass({
       shownResults: maxResults,
       text: '',
       isAbove: true,
+      responseData: [],
     };
   },
 
   componentWillMount() {
     const {
       allowNew,
-      caseSensitive,
-      filterBy,
-      ignoreDiacritics,
       labelKey,
     } = this.props;
-
-    warn(
-      !(typeof filterBy === 'function' && (caseSensitive || !ignoreDiacritics)),
-      'Your `filterBy` function will override the `caseSensitive` and ' +
-      '`ignoreDiacritics` props.'
-    );
 
     warn(
       !(typeof labelKey === 'function' && allowNew),
@@ -228,6 +208,7 @@ const Refers = React.createClass({
 
   componentDidMount() {
     this.props.autoFocus && this.focus();
+    this._getFilteredResults();
   },
 
   componentWillReceiveProps(nextProps) {
@@ -248,8 +229,10 @@ const Refers = React.createClass({
     const {allowNew, className, dropup, labelKey, paginate} = this.props;
     const {shownResults, text} = this.state;
 
+
     // First filter the results by the input string.
-    let results = this._getFilteredResults();
+    let results = this.state.responseData;
+
 
     // This must come before we truncate.
     const shouldPaginate = paginate && results.length > shownResults;
@@ -278,33 +261,23 @@ const Refers = React.createClass({
   },
   
   _getFilteredResults() {
-    const {
-      caseSensitive,
-      filterBy,
-      ignoreDiacritics,
-      labelKey,
-      minLength,
-      multiple,
-      options,
-    } = this.props;
-    const {selected, text} = this.state;
+    const {refConditions} = this.props;
+    let _this = this;
 
-    if (text.length < minLength) {
-      return [];
-    }
+    request.post('http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON')
+      .set('Content-Type', 'application/json')
+      .send(JSON.stringify(refConditions))
+      .end(function (err,res) {
+        if(err || !res.ok) {
 
-    const callback = Array.isArray(filterBy) ?
-      option => defaultFilterBy(
-        option,
-        text,
-        labelKey,
-        multiple && !!find(selected, o => isEqual(o, option)),
-        {caseSensitive, ignoreDiacritics, fields: filterBy}
-      ) :
-      option => filterBy(option, text);
+        } else {
+          let data = JSON.parse(res.text);
+          _this.setState({responseData: JSON.parse(data.data)}) ;
+        }
 
-    return options.filter(callback);
+      });
   },
+
 
   blur() {
     this.refs.input.blur();
