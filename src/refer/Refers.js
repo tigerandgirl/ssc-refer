@@ -68,6 +68,21 @@ const Refers = React.createClass({
      */
     dropup: PropTypes.bool,
     /**
+     * Either an array of fields in `option` to search, or a custom filtering
+     * callback.
+     */
+    filterBy: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.string.isRequired),
+      PropTypes.func,
+    ]),
+    /**
+     * Whether the filter should ignore accents and other diacritical marks.
+     */
+    ignoreDiacritics: PropTypes.bool,
+    /**
+     * Indicate whether an asynchromous data fetch is happening.
+     */
+    /**
      * Indicate whether an asynchromous data fetch is happening.
      */
     isLoading: PropTypes.bool,
@@ -125,12 +140,19 @@ const Refers = React.createClass({
      */
     selected: PropTypes.array,
     /**
-     * set refConditions ,for example `{"refCode":"dept","refType":"tree","rootName":"部门"}`
+     * set refer data url ,for example `http://YOURHOST/queryRefJSON`
      */
-    refConditions: PropTypes.oneOfType([
+    referDataUrl: PropTypes.oneOfType([
       PropTypes.objectOf(PropTypes.object.isRequired),
       PropTypes.objectOf(PropTypes.string.isRequired),
-    ]).isRequired,
+    ]),
+    /**
+     * set refOptions ,for example `{"refCode":"dept","refType":"tree","rootName":"部门"}`
+     */
+    referConditions: PropTypes.oneOfType([
+      PropTypes.objectOf(PropTypes.object.isRequired),
+      PropTypes.objectOf(PropTypes.string.isRequired),
+    ]),
 
   },
 
@@ -143,6 +165,8 @@ const Refers = React.createClass({
       clearButton: false,
       defaultSelected: [],
       dropup: false,
+      filterBy: [],
+      ignoreDiacritics: true,
       isLoading: false,
       labelKey: 'label',
       maxResults: 100,
@@ -208,7 +232,7 @@ const Refers = React.createClass({
 
   componentDidMount() {
     this.props.autoFocus && this.focus();
-    this._getFilteredResults();
+    this._loadData();
   },
 
   componentWillReceiveProps(nextProps) {
@@ -231,7 +255,7 @@ const Refers = React.createClass({
 
 
     // First filter the results by the input string.
-    let results = this.state.responseData;
+    let results = this._getFilteredResults();
 
 
     // This must come before we truncate.
@@ -261,12 +285,40 @@ const Refers = React.createClass({
   },
   
   _getFilteredResults() {
-    const {refConditions} = this.props;
+    const {
+      caseSensitive,
+      filterBy,
+      ignoreDiacritics,
+      labelKey,
+      minLength,
+      multiple,
+    } = this.props;
+    const {selected, text} = this.state;
+
+    if (text.length < minLength) {
+      return [];
+    }
+
+    const callback = Array.isArray(filterBy) ?
+      option => defaultFilterBy(
+        option,
+        text,
+        labelKey,
+        multiple && !!find(selected, o => isEqual(o, option)),
+        {caseSensitive, ignoreDiacritics, fields: filterBy}
+      ) :
+      option => filterBy(option, text);
+
+    return this.state.responseData.filter(callback);
+  },
+
+  _loadData() {
+    const {referDataUrl,referConditions} = this.props;
     let _this = this;
 
-    request.post('http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON')
+    request.post(referDataUrl)
       .set('Content-Type', 'application/json')
-      .send(JSON.stringify(refConditions))
+      .send(JSON.stringify(referConditions))
       .end(function (err,res) {
         if(err || !res.ok) {
 
@@ -277,7 +329,6 @@ const Refers = React.createClass({
 
       });
   },
-
 
   blur() {
     this.refs.input.blur();
@@ -412,7 +463,7 @@ const Refers = React.createClass({
         container={bodyContainer ? document.body : this}
         show={showMenu && text.length >= minLength}
         target={() => this.refs.input}>
-        {list}
+        {menu}
       </Overlay>
     );
   },
@@ -562,7 +613,6 @@ const Refers = React.createClass({
       text,
     });
     this._hideDropdown();
-    debugger;
     onChange(selected);
     onInputChange(text);
   },

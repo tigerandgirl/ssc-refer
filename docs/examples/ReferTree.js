@@ -4,7 +4,8 @@
 
 
 
-const refConditions = {"refCode":"dept","refType":"tree","rootName":"部门"};
+const referConditions = {"refCode":"dept","refType":"tree","rootName":"部门"};
+const referDataUrl = "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON";
 
 const ReferTreeExample = React.createClass({
   getInitialState() {
@@ -25,10 +26,11 @@ const ReferTreeExample = React.createClass({
           {...this.state}
           emptyLabel={emptyLabel ? '' : undefined}
           labelKey="name"
-          multiple
           onChange={this._handleChange}
+          onBlur={this._handleBlur}
           placeholder="请选择..."
-          refConditions={refConditions}
+          referConditions={referConditions}
+          referDataUrl={referDataUrl}
         />
 
       </div>
@@ -36,7 +38,10 @@ const ReferTreeExample = React.createClass({
   },
 
   _handleChange(selected) {
-    alert(JSON.stringify(selected));
+    console.log(JSON.stringify(selected));
+  },
+  _handleBlur(e) {
+    console.log('blurblurblur'+JSON.stringify(e));
   },
 
 });

@@ -45,10 +45,10 @@ const Content = React.createClass({
   getDefaultProps() {
     return {
       align: 'justify',
-      emptyLabel: 'No matches found.',
+      emptyLabel: '无匹配结果.',
       maxHeight: 300,
       paginate: true,
-      paginationText: 'Display additional results...',
+      paginationText: '显示更多...',
     };
   },
 
