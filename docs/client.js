@@ -18,11 +18,8 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/solarized.css';
 import './assets/CodeMirror.css';
 
-import '../css/ClearButton.css';
-import '../css/Loader.css';
-import '../css/Token.css';
-import '../css/Typeahead.css';
-import '../css/refer.css';
+import '../css/referStyle.css';
+
 
 
 import './assets/carousel.png';

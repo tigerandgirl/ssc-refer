@@ -13,7 +13,10 @@ export default function ReferTreeSection() {
       </h2>
 
       <h3><Anchor id="refer-new">树形参照组件</Anchor></h3>
-      <p>使用<code>sourceData</code>参数可以往参照中传入数据。</p>
+      <p>使用<code>referDataUrl</code>设置数据源地地。</p>
+      <p>使用<code>referConditions</code>设置数据请求的参数,详见属性说明</p>
+      <p>需要引用本模块样式，如<code>import from  'ssc-refer/css/referStyle.css';</code></p>
+
       <ReactPlayground codeText={Samples.ReferTree} />
 
       <h3><Anchor id="refer-props">属性</Anchor></h3>
