@@ -46,8 +46,9 @@ const ReferList = React.createClass({
 
   getInitialState() {
     const {options} = this.props;
-    let defaultNav = filter(options,{"pid": "", "isLeaf": "false"});
-    let defaultContent = filter(options,function (item) {return item.pid === defaultNav[0].id});
+    let defaultNav = filter(options,{"isLeaf": "false", pid: ""});
+
+    let defaultContent = filter(options,function (item) {return item.pid === defaultNav[defaultNav.length-1].id});
 
     return {
       navList: defaultNav,
@@ -91,26 +92,6 @@ const ReferList = React.createClass({
     </Breadcrumb>;
 
     return navBar;
-  },
-
-  _renderListContent(dataList) {
-
-    return (
-        <div>
-          <ul className="refer_list ul-list2">
-            {
-              dataList.map((item) => {
-                return(
-                  <li className="col-md-6 openLi">
-                    <span className="hoverBackground">{item.name}</span>
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </div>
-
-    );
   },
 
   _renderListItem(option,idx) {

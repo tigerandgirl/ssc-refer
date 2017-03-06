@@ -39,7 +39,7 @@ const ReferTreeExample = React.createClass({
   },
 
   _handleChange(selected) {
-    console.log(JSON.stringify(selected));
+    // console.log(JSON.stringify(selected));
   },
   _handleBlur(e) {
     console.log('blurblurblur'+JSON.stringify(e));
