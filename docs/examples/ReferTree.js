@@ -31,6 +31,7 @@ const ReferTreeExample = React.createClass({
           placeholder="请选择..."
           referConditions={referConditions}
           referDataUrl={referDataUrl}
+          referType="cascader"
         />
 
       </div>

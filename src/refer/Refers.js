@@ -147,6 +147,11 @@ const Refers = React.createClass({
      * set refOptions ,for example `{"refCode":"dept","refType":"tree","rootName":"部门"}`
      */
     referConditions: PropTypes.object.isRequired,
+    /**
+     * set refer type, for example: list, cascader, table, treetable, default type is list.
+     */
+    referType: PropTypes.string.isRequired,
+
 
   },
 
@@ -173,7 +178,8 @@ const Refers = React.createClass({
       paginate: true,
       selected: [],
       referDataUrl: "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON",
-      referConditions: noop,
+      referConditions: {},
+      referType: 'list',
     };
   },
 
@@ -420,6 +426,7 @@ const Refers = React.createClass({
       paginationText,
       renderMenu,
       renderMenuItemChildren,
+      referType,
     } = this.props;
 
     const {showMenu, text} = this.state;
@@ -437,7 +444,7 @@ const Refers = React.createClass({
       text,
     };
 
-    const menu = renderMenu ?
+    const list = renderMenu ?
       renderMenu(results, menuProps) :
       <TypeaheadMenu
         {...menuProps}
@@ -445,7 +452,7 @@ const Refers = React.createClass({
         renderMenuItemChildren={renderMenuItemChildren}
       />;
 
-    const list = renderMenu ?
+    const cascader = renderMenu ?
       renderMenu(results, menuProps) :
       <ReferList
         {...menuProps}
@@ -453,13 +460,30 @@ const Refers = React.createClass({
         renderMenuItemChildren={renderMenuItemChildren}
       />;
 
+    let typeObj = noop;
+    switch (referType) {
+      case  'list':
+        typeObj= list;
+        break;
+      case 'cascader':
+        typeObj= cascader;
+        break;
+      case  'table':
+        typeObj= cascader;
+        break;
+      case 'treetable':
+        typeObj= cascader;
+        break;
+      default:
+        typeObj= list;
+    }
 
     return (
       <Overlay
         container={bodyContainer ? document.body : this}
         show={showMenu && text.length >= minLength}
         target={() => this.refs.input}>
-        {menu}
+        {typeObj}
       </Overlay>
     );
   },
