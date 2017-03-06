@@ -142,17 +142,11 @@ const Refers = React.createClass({
     /**
      * set refer data url ,for example `http://YOURHOST/queryRefJSON`
      */
-    referDataUrl: PropTypes.oneOfType([
-      PropTypes.objectOf(PropTypes.object.isRequired),
-      PropTypes.objectOf(PropTypes.string.isRequired),
-    ]),
+    referDataUrl: PropTypes.string.isRequired,
     /**
      * set refOptions ,for example `{"refCode":"dept","refType":"tree","rootName":"部门"}`
      */
-    referConditions: PropTypes.oneOfType([
-      PropTypes.objectOf(PropTypes.object.isRequired),
-      PropTypes.objectOf(PropTypes.string.isRequired),
-    ]),
+    referConditions: PropTypes.object.isRequired,
 
   },
 
@@ -178,6 +172,8 @@ const Refers = React.createClass({
       onInputChange: noop,
       paginate: true,
       selected: [],
+      referDataUrl: "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON",
+      referConditions: noop,
     };
   },
 
