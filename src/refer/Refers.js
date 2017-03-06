@@ -151,7 +151,10 @@ const Refers = React.createClass({
      * set refer type, for example: list, cascader, table, treetable, default type is list.
      */
     referType: PropTypes.string.isRequired,
-
+    /**
+     * set custom columns for table display, for example `[{"field":"name", "label":"名称"},{"field":"code","label":"编码"},{"field":"addr","label":"地址"}]`
+     */
+    referCustomColumns: PropTypes.array,
 
   },
 
