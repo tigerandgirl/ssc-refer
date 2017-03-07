@@ -220,6 +220,7 @@ const Refers = React.createClass({
       text: '',
       isAbove: true,
       responseData: [],
+      styleStatus: {position: 'relative'},
     };
   },
 
@@ -281,7 +282,7 @@ const Refers = React.createClass({
         className={cx('bootstrap-typeahead', 'open', {
           'dropup': dropup,
         }, className)}
-        style={{position: 'relative'}}>
+        style={this.state.styleStatus}>
         {this._renderInput(results)}
         {this._renderAux()}
         {this._renderMenu(results, shouldPaginate)}
@@ -369,6 +370,18 @@ const Refers = React.createClass({
     return this.state.selected;
   },
 
+  hideRefers() {
+    this.setState({
+      styleStatus: {display: 'none'}
+    })
+  },
+
+  showRefers() {
+    this.setState({
+      styleStatus: {display: ''}
+    })
+  },
+
   _renderInput(results) {
     const {
       bsSize,
@@ -403,7 +416,7 @@ const Refers = React.createClass({
             labelKey={labelKey}
             onAdd={this._handleAddOption}
             onBlur={this._handleBlur}
-            onChange={this._handleChange}
+            onChange={this._handleTextChange}
             onFocus={this._handleFocus}
             onKeyDown={e => this._handleKeydown(results, e)}
             onRemove={this._handleRemoveOption}
@@ -564,7 +577,8 @@ const Refers = React.createClass({
     this.props.onInputChange(text);
   },
 
-  _handleChange(e) {
+  _handleChange(text, e) {
+    this._handleTextChange(text);
     this.props.onChange(e);
   },
 

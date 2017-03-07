@@ -49,12 +49,13 @@ const ReferTreeExample = React.createClass({
     );
   },
 
-  _handleChange(e) {
+  _handleChange(selected) {
+    console.log('oncliclk'+JSON.stringify(selected));
     console.log('oncliclk'+JSON.stringify(e));
   },
   _handleBlur(e) {
     console.log('blurblurblur'+e);
-    console.log(JSON.stringify(this._myrefers.getInstance().getData()));
+    console.log(JSON.stringify(this._myrefers.getInstance().hideRefers()));
     
   },
   
