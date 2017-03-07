@@ -2,6 +2,15 @@
  * Created by Tiger on 17/2/15.
  */
 
+const defaultData =   [{
+  "id": "02EDD0F9-F384-43BF-9398-5E5781DAC5D0",
+  "code": "0502",
+  "name": "二车间",
+  "pid": "",
+  "isLeaf": "true"
+}];
+
+
 
 
 const referConditions = {"refCode":"dept","refType":"tree","rootName":"部门"};
@@ -32,18 +41,24 @@ const ReferTreeExample = React.createClass({
           referConditions={referConditions}
           referDataUrl={referDataUrl}
           referType="list"
+          defaultSelected={defaultData}
+          ref={ref => this._myrefers = ref}
         />
 
       </div>
     );
   },
 
-  _handleChange(selected) {
-    // console.log(JSON.stringify(selected));
+  _handleChange(e) {
+    console.log('oncliclk'+JSON.stringify(e));
   },
   _handleBlur(e) {
-    // console.log('blurblurblur'+JSON.stringify(e));
+    console.log('blurblurblur'+e);
+    console.log(JSON.stringify(this._myrefers.getInstance().getData()));
+    
   },
+  
+
 
 });
 

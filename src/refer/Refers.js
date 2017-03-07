@@ -365,6 +365,10 @@ const Refers = React.createClass({
     this.refs.input.focus();
   },
 
+  getData() {
+    return this.state.selected;
+  },
+
   _renderInput(results) {
     const {
       bsSize,
@@ -399,7 +403,7 @@ const Refers = React.createClass({
             labelKey={labelKey}
             onAdd={this._handleAddOption}
             onBlur={this._handleBlur}
-            onChange={this._handleTextChange}
+            onChange={this._handleChange}
             onFocus={this._handleFocus}
             onKeyDown={e => this._handleKeydown(results, e)}
             onRemove={this._handleRemoveOption}
@@ -558,6 +562,10 @@ const Refers = React.createClass({
     });
 
     this.props.onInputChange(text);
+  },
+
+  _handleChange(e) {
+    this.props.onChange(e);
   },
 
   _handleKeydown(options, e) {

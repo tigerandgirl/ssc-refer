@@ -42,7 +42,7 @@ const ReferList = React.createClass({
   getInitialState() {
     const {options} = this.props;
     let defaultNav = filter(options,{"isLeaf": "false", pid: ""});
-    let defaultContent = filter(options,function (item) {return item.pid === defaultNav[defaultNav.length-1].id});
+    let defaultContent = filter(options,function (item) {return true});
 
     return {
       navList: defaultNav,
