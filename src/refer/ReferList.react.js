@@ -42,7 +42,6 @@ const ReferList = React.createClass({
   getInitialState() {
     const {options} = this.props;
     let defaultNav = filter(options,{"isLeaf": "false", pid: ""});
-
     let defaultContent = filter(options,function (item) {return item.pid === defaultNav[defaultNav.length-1].id});
 
     return {
@@ -78,7 +77,7 @@ const ReferList = React.createClass({
         {
           dataList.map((item) => {
             return(
-              <Breadcrumb.Item href="#">
+              <Breadcrumb.Item href="javascript:void(0)" onClick={this._handleChangeStatus} >
                 {item.name}
               </Breadcrumb.Item>
             );

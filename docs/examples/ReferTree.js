@@ -31,7 +31,7 @@ const ReferTreeExample = React.createClass({
           placeholder="请选择..."
           referConditions={referConditions}
           referDataUrl={referDataUrl}
-          referType="cascader"
+          referType="list"
         />
 
       </div>
@@ -42,7 +42,7 @@ const ReferTreeExample = React.createClass({
     // console.log(JSON.stringify(selected));
   },
   _handleBlur(e) {
-    console.log('blurblurblur'+JSON.stringify(e));
+    // console.log('blurblurblur'+JSON.stringify(e));
   },
 
 });

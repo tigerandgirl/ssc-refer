@@ -329,7 +329,7 @@ const Refers = React.createClass({
 
         } else {
           let data = JSON.parse(res.text);
-          _this.setState({responseData: JSON.parse(data.data)}) ;
+          _this.setState({responseData: data.data});
         }
 
       });
