@@ -1,17 +1,12 @@
 'use strict';
 
 import {pick,filter} from 'lodash';
-import Highlight from 'react-highlighter';
 import React, {PropTypes} from 'react';
 
 import List from './List.react';
 import ListItem from './ListItem.react';
 
-import getOptionLabel from './utils/getOptionLabel';
-
 import {Breadcrumb} from 'react-bootstrap';
-
-const MATCH_CLASS = 'bootstrap-typeahead-highlight';
 
 const ReferList = React.createClass({
   displayName: 'ReferList',
@@ -97,9 +92,7 @@ const ReferList = React.createClass({
   _renderListItem(option,idx) {
     const {
       labelKey,
-      newSelectionPrefix,
       renderMenuItemChildren,
-      text,
     } = this.props;
 
     const menuItemProps = {
@@ -108,28 +101,38 @@ const ReferList = React.createClass({
       option,
       position: idx,
       className: 'col-md-6 openLi',
+      labelKey,
     };
-
-    if (option.customOption) {
-      return (
-        <ListItem {...menuItemProps}>
-          {newSelectionPrefix}
-          <Highlight matchClass={MATCH_CLASS} search={text}>
-            {option[labelKey]}
-          </Highlight>
-        </ListItem>
-      );
-    }
 
     return renderMenuItemChildren ?
       <ListItem {...menuItemProps}>
         {renderMenuItemChildren(option, this.props, idx)}
       </ListItem> :
-      <ListItem {...menuItemProps}>
-        <Highlight matchClass={MATCH_CLASS} search={text}>
-          {getOptionLabel(option, labelKey)}
-        </Highlight>
+      <ListItem changeStatus={this._handleChangeStatus} {...menuItemProps}>
+        {option}
       </ListItem>;
+
+  },
+  _handleChangeStatus(option) {
+    this._changeNav(option);
+    this._changelist(option);
+
+  },
+
+  _changeNav(option) {
+    let navList = this.state.navList;
+    navList.push(option);
+    this.setState({
+      navList: navList
+    })
+  },
+
+  _changelist(option) {
+    const {options} = this.props;
+    let currentList = filter(options,function (item) {return item.pid === option.id});
+    this.setState({
+      contentList: currentList
+    })
 
   },
 

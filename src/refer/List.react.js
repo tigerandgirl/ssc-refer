@@ -60,7 +60,7 @@ const List = React.createClass({
     if (noResults && emptyLabel === '') {
       return null;
     }
-
+    
     const contents = children;
 
     return (
