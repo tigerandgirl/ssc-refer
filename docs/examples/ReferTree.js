@@ -10,7 +10,7 @@ const defaultData =   [{
   "isLeaf": "true"
 }];
 
-
+const multiple = false;
 
 
 const referConditions = {"refCode":"dept","refType":"tree","rootName":"部门"};
@@ -43,6 +43,7 @@ const ReferTreeExample = React.createClass({
           referType="list"
           defaultSelected={defaultData}
           ref={ref => this._myrefers = ref}
+          multiple={multiple}
         />
 
       </div>

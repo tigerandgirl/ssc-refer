@@ -537,8 +537,8 @@ const Refers = React.createClass({
 
   _handleFocus(e) {
     this.props.onFocus(e);
-    const{mutiple} = this.props;
-    if(!mutiple) {
+    const{multiple} = this.props;
+    if(!multiple) {
       this.clear();
     }
     this._loadData();
