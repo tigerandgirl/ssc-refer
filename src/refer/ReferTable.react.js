@@ -4,8 +4,7 @@ import {pick,filter} from 'lodash';
 import React, {PropTypes} from 'react';
 
 import Table from './Table.react';
-
-import {Breadcrumb} from 'react-bootstrap';
+import TableRender from './TableRender.react';
 
 const ReferTable = React.createClass({
   displayName: 'ReferTable',
@@ -38,16 +37,6 @@ const ReferTable = React.createClass({
     };
   },
 
-  getInitialState() {
-    const {options} = this.props; 
-    let defaultNav = filter(options,{"isLeaf": "false", pid: ""});
-    let defaultContent = filter(options,function (item) {return true});
-
-    return {
-      navList: defaultNav,
-      contentList: defaultContent,
-    };
-  },
 
   render() {
     const menuProps = pick(this.props, [
@@ -62,11 +51,22 @@ const ReferTable = React.createClass({
       'style',
     ]);
 
+    const {options} =  this.props;
+
     return (
       <Table {...menuProps}>
-        <h1>this is a table</h1>
+        {this._renderTable(options)}
       </Table>
     );
+  },
+
+  _renderTable(options){
+    return (
+      <TableRender>
+        {options}
+      </TableRender>
+    );
+
   },
 
 
