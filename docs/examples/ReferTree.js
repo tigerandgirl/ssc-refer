@@ -40,7 +40,7 @@ const ReferTreeExample = React.createClass({
           placeholder="请选择..."
           referConditions={referConditions}
           referDataUrl={referDataUrl}
-          referType="list"
+          referType="table"
           defaultSelected={defaultData}
           ref={ref => this._myrefers = ref}
           multiple={multiple}

@@ -14,6 +14,7 @@ import TypeaheadInput from './TypeaheadInput.react';
 import TypeaheadMenu from './TypeaheadMenu.react';
 
 import ReferList from './ReferList.react';
+import ReferTable from './ReferTable.react';
 
 import addCustomOption from './utils/addCustomOption';
 import defaultFilterBy from './utils/defaultFilterBy';
@@ -479,6 +480,14 @@ const Refers = React.createClass({
         renderMenuItemChildren={renderMenuItemChildren}
       />;
 
+    const table = renderMenu ?
+      renderMenu(results, menuProps) :
+      <ReferTable
+        {...menuProps}
+        options={results}
+        renderMenuItemChildren={renderMenuItemChildren}
+      />;
+
 
     let typeObj = noop;
     switch (referType) {
@@ -489,7 +498,7 @@ const Refers = React.createClass({
         typeObj= cascader;
         break;
       case  'table':
-        typeObj= cascader;
+        typeObj= table;
         break;
       case 'treetable':
         typeObj= cascader;
