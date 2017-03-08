@@ -479,6 +479,7 @@ const Refers = React.createClass({
         renderMenuItemChildren={renderMenuItemChildren}
       />;
 
+
     let typeObj = noop;
     switch (referType) {
       case  'list':
