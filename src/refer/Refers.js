@@ -238,7 +238,6 @@ const Refers = React.createClass({
 
   componentDidMount() {
     this.props.autoFocus && this.focus();
-    this._loadData();
   },
 
   componentWillReceiveProps(nextProps) {
@@ -378,7 +377,7 @@ const Refers = React.createClass({
 
   showRefers() {
     this.setState({
-      styleStatus: {display: ''}
+      styleStatus: {position: 'relative'}
     })
   },
 
@@ -538,6 +537,7 @@ const Refers = React.createClass({
 
   _handleFocus(e) {
     this.props.onFocus(e);
+    this._loadData();
     this.setState({showMenu: true});
   },
 

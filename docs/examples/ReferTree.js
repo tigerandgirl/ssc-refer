@@ -55,7 +55,7 @@ const ReferTreeExample = React.createClass({
   },
   _handleBlur(e) {
     console.log('blurblurblur'+e);
-    console.log(JSON.stringify(this._myrefers.getInstance().hideRefers()));
+    //console.log(JSON.stringify(this._myrefers.getInstance().hideRefers()));
     
   },
   
