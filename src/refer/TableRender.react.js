@@ -6,11 +6,11 @@ import React from 'react';
 
 import Table from 'bee-table';
 
-//import renderContainer from '../containers/renderContainer';
+import renderContainer from '../containers/renderContainer';
 
 
-const TableRender = React.createClass({
-  displayName: 'TableRender',
+const BaseTableRender = React.createClass({
+  displayName: 'BaseTableRender',
 
   getDefaultProps() {
     return {
@@ -20,7 +20,7 @@ const TableRender = React.createClass({
 
   render() {
     
-    const {active, children, className, disabled,labelKey, tableColumns} = this.props;
+    const {children, tableColumns} = this.props;
     children.forEach(function(item, index) {
       item.key = index + 1 + '';
     });
@@ -30,15 +30,17 @@ const TableRender = React.createClass({
         <Table
           columns={tableColumns}
           data={children}
+          onRowClick={this._handleClick}
         />
       </div>
 
     );
   },
 
-  _handleClick(e) {
+  _handleClick(record,index,e) {
     const {disabled, onClick} = this.props;
-
+    console.log(JSON.stringify(record));
+    console.log(index);
     e.preventDefault();
     !disabled && onClick(e);
   },
@@ -46,7 +48,7 @@ const TableRender = React.createClass({
 
 });
 
-//const TableRender = renderContainer(BaseTableRender);
+const TableRender = renderContainer(BaseTableRender);
 
-//export {BaseTableRender};
+export {BaseTableRender};
 export default TableRender;
