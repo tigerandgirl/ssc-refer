@@ -4,10 +4,13 @@ import cx from 'classnames';
 import {noop} from 'lodash';
 import React from 'react';
 
-import renderContainer from '../containers/renderContainer';
+import Table from 'bee-table';
 
-const BaseTableRender = React.createClass({
-  displayName: 'BaseTableRender',
+//import renderContainer from '../containers/renderContainer';
+
+
+const TableRender = React.createClass({
+  displayName: 'TableRender',
 
   getDefaultProps() {
     return {
@@ -16,13 +19,20 @@ const BaseTableRender = React.createClass({
   },
 
   render() {
-    const {active, children, className, disabled,labelKey} = this.props;
-
+    
+    const {active, children, className, disabled,labelKey, tableColumns} = this.props;
+    children.forEach(function(item, index) {
+      item.key = index + 1 + '';
+    });
 
     return (
-      <div>
-        <h1>this is a tablefsfsfsdfsddsf refer</h1>
+      <div className="col-md-12">
+        <Table
+          columns={tableColumns}
+          data={children}
+        />
       </div>
+
     );
   },
 
@@ -36,7 +46,7 @@ const BaseTableRender = React.createClass({
 
 });
 
-const TableRender = renderContainer(BaseTableRender);
+//const TableRender = renderContainer(BaseTableRender);
 
-export {BaseTableRender};
+//export {BaseTableRender};
 export default TableRender;

@@ -61,8 +61,14 @@ const ReferTable = React.createClass({
   },
 
   _renderTable(options){
+    const { tableColumns } = this.props;
+
+    const tableProps = {
+      tableColumns,
+    }
+
     return (
-      <TableRender>
+      <TableRender {...tableProps}>
         {options}
       </TableRender>
     );

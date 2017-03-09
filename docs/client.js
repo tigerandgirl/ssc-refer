@@ -20,8 +20,6 @@ import './assets/CodeMirror.css';
 
 import '../css/referStyle.css';
 
-
-
 import './assets/carousel.png';
 import './assets/logo.png';
 import './assets/favicon.ico';

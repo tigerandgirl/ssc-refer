@@ -2,6 +2,7 @@
 
 import cx from 'classnames';
 import React, {PropTypes} from 'react';
+import { HelpBlock } from 'react-bootstrap';
 
 const TextInput = React.createClass({
   propTypes: {
@@ -15,16 +16,16 @@ const TextInput = React.createClass({
     const {bsSize, className, hasAux, ...otherProps} = this.props;
 
     return (
-      <input
-        {...otherProps}
-        className={cx('form-control', {
-          'has-aux': hasAux,
-          'input-lg': bsSize === 'large' || bsSize === 'lg',
-          'input-sm': bsSize === 'small' || bsSize === 'sm',
-        }, className)}
-        ref={input => this._input = input}
-        type="text"
-      />
+        <input
+          {...otherProps}
+          className={cx('form-control', {
+            'has-aux': hasAux,
+            'input-lg': bsSize === 'large' || bsSize === 'lg',
+            'input-sm': bsSize === 'small' || bsSize === 'sm',
+          }, className)}
+          ref={input => this._input = input}
+          type="text"
+        />
     );
   },
 

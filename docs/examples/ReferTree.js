@@ -12,8 +12,13 @@ const defaultData =   [{
 
 const multiple = false;
 
+const columns = [
+  { title: '名称', dataIndex: 'name', key: 'name', width: 100 },
+  { title: '编码', dataIndex: 'code', key: 'code', width: 100 },
+  { title: '邮箱', dataIndex: 'email', key: 'email', width: 200 },
+]
 
-const referConditions = {"refCode":"dept","refType":"tree","rootName":"部门"};
+const referConditions = {"refCode":"user","refType":"table","rootName":"部门","displayFields":["code","name","email"]};
 const referDataUrl = "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON";
 
 const ReferTreeExample = React.createClass({
@@ -44,6 +49,7 @@ const ReferTreeExample = React.createClass({
           defaultSelected={defaultData}
           ref={ref => this._myrefers = ref}
           multiple={multiple}
+          tableColumns={columns}
         />
 
       </div>

@@ -28,7 +28,8 @@ const baseConfig = {
 
   module: {
     loaders: [
-      { test: /\.js/, loader: jsLoader, exclude: /node_modules/ }
+      { test: /\.js/, loader: jsLoader, exclude: /node_modules/ },
+      { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]' }
     ]
   },
 

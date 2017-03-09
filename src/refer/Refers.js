@@ -155,7 +155,7 @@ const Refers = React.createClass({
     /**
      * set custom columns for table display, for example `[{"field":"name", "label":"名称"},{"field":"code","label":"编码"},{"field":"addr","label":"地址"}]`
      */
-    referCustomColumns: PropTypes.array,
+    tableColumns: PropTypes.array,
 
   },
 
@@ -447,6 +447,7 @@ const Refers = React.createClass({
       renderMenu,
       renderMenuItemChildren,
       referType,
+      tableColumns,
     } = this.props;
 
     const {showMenu, text} = this.state;
@@ -462,6 +463,7 @@ const Refers = React.createClass({
       onPaginate: this._handlePagination,
       paginate: shouldPaginate,
       text,
+      tableColumns,
     };
 
     const list = renderMenu ?
