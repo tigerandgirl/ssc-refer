@@ -45,7 +45,7 @@ const Table = React.createClass({
   getDefaultProps() {
     return {
       align: 'justify',
-      emptyLabel: '无匹配结果.',
+      emptyLabel: '无数据.',
       maxHeight: 300,
       paginate: true,
       paginationText: '显示更多...',

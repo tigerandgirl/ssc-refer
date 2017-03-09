@@ -330,7 +330,10 @@ const Refers = React.createClass({
 
         } else {
           let data = JSON.parse(res.text);
-          _this.setState({responseData: data.data});
+          if(typeof(data.data)==='object' || data.data.length>0) {
+            _this.setState({responseData: data.data});
+          }
+
         }
 
       });
