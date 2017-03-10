@@ -113,6 +113,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
+    "bee-icon": "^0.1.1",
     "bee-table": "^0.2.0",
     "bee-tree": "^0.1.1",
     "classnames": "^2.2.5",

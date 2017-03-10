@@ -5,9 +5,9 @@ import {noop} from 'lodash';
 import React, {PropTypes} from 'react';
 
 import Table from 'bee-table';
-import Tree from 'bee-tree';
+import Tree,{TreeNode} from 'bee-tree';
+import Icon from 'bee-icon';
 
-const TreeNode = Tree.TreeNode;
 
 let treeData= [
   {
