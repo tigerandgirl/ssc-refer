@@ -36,6 +36,9 @@ const TableRender = React.createClass({
     return (
       <div className="col-md-12">
         <Table
+          useFixedHeader={true}
+          scroll={{x:true,y:400}}
+          emptyText={() => '加载中...'}
           columns={tableColumns}
           data={children}
           onRowClick={this._handleClick}

@@ -18,7 +18,7 @@ const columns = [
   { title: '邮箱', dataIndex: 'email', key: 'email', width: 200 },
 ]
 
-const referConditions = {"refCode":"user","refType":"table","rootName":"部门","displayFields":["code","name","email"]};
+const referConditions = {"refCode":"user","refType":"table","displayFields":[]};
 const referDataUrl = "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON";
 
 const ReferExample = React.createClass({
@@ -46,6 +46,7 @@ const ReferExample = React.createClass({
           referConditions={referConditions}
           referDataUrl={referDataUrl}
           referType="table"
+          maxHeight="410"
           defaultSelected={defaultData}
           ref={ref => this._myrefers = ref}
           multiple={multiple}

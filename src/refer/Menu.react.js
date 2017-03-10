@@ -45,7 +45,7 @@ const Menu = React.createClass({
   getDefaultProps() {
     return {
       align: 'justify',
-      emptyLabel: '无数据.',
+      emptyLabel: '加载中...',
       maxHeight: 300,
       paginate: true,
       paginationText: '显示更多...',

@@ -81,7 +81,7 @@ const Table = React.createClass({
       ...style,
       display: 'block',
       maxHeight: maxHeight + 'px',
-      overflow: 'auto',
+      overflow: 'hidden',
     };
 
     if (style) {
