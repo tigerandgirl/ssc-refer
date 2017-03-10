@@ -21,7 +21,7 @@ const columns = [
 const referConditions = {"refCode":"user","refType":"table","rootName":"部门","displayFields":["code","name","email"]};
 const referDataUrl = "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON";
 
-const ReferTreeExample = React.createClass({
+const ReferExample = React.createClass({
   getInitialState() {
     return {
       disabled: false,
@@ -45,11 +45,10 @@ const ReferTreeExample = React.createClass({
           placeholder="请选择..."
           referConditions={referConditions}
           referDataUrl={referDataUrl}
-          referType="table"
+          referType="treetable"
           defaultSelected={defaultData}
           ref={ref => this._myrefers = ref}
           multiple={multiple}
-          tableColumns={columns}
         />
 
       </div>
@@ -70,5 +69,5 @@ const ReferTreeExample = React.createClass({
 
 });
 
-ReactDOM.render(<ReferTreeExample />, mountNode);
+ReactDOM.render(<ReferExample />, mountNode);
 

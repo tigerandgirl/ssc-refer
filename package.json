@@ -130,8 +130,7 @@
     "react-overlays": "^0.6.11",
     "react-prop-types": "^0.4.0",
     "superagent": "^3.5.0",
-    "warning": "^3.0.0",
-    "ztree-for-react": "^0.1.5"
+    "warning": "^3.0.0"
   },
   "release-script": {
     "defaultDryRun": true,

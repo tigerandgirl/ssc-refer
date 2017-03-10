@@ -12,7 +12,7 @@ import SubNav from './SubNav';
 
 import ReferListSection from './sections/ReferListSection';
 import ReferTableSection from './sections/ReferTableSection';
-import ReferTreeSection from './sections/ReferTreeSection';
+import ReferTreeTableSection from './sections/ReferTreeTableSection';
 
 
 // order matters
@@ -22,7 +22,7 @@ const sections = {
   refer: '#refer',
   referlist: '#referlist',
   refertable: '#refertable',
-  refertree: '#refertree',
+  refertreetable: '#refertreetable',
 };
 /* eslint-enable indent */
 
@@ -146,8 +146,9 @@ const ComponentsPage = React.createClass({
               {this.renderScrollSpy(sections.refertable)}
               <ReferTableSection />
 
-              {this.renderScrollSpy(sections.refertree)}
-              <ReferTreeSection />
+              {this.renderScrollSpy(sections.refertreetable)}
+              <ReferTreeTableSection />
+
 
 
             </div>
@@ -171,7 +172,7 @@ const ComponentsPage = React.createClass({
                     <SubNav href={sections.refer} text="Refer">
                       <NavItem href={sections.referlist}>列表参照</NavItem>
                       <NavItem href={sections.refertable}>表格参照</NavItem>
-                      <NavItem href={sections.refertree}>树形参照</NavItem>
+                      <NavItem href={sections.refertreetable}>树表形参照</NavItem>
                     </SubNav>
                   </Nav>
 
