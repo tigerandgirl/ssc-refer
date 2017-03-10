@@ -10,7 +10,7 @@ const defaultData =   [{
   "isLeaf": "true"
 }];
 
-const multiple = false;
+const multiple = true;
 
 const columns = [
   { title: '名称', dataIndex: 'name', key: 'name', width: 100 },
@@ -57,11 +57,11 @@ const ReferTreeExample = React.createClass({
   },
 
   _handleChange(selected) {
-    console.log('oncliclk'+JSON.stringify(selected));
-    //console.log('oncliclk'+JSON.stringify(e));
+    // console.log('oncliclk'+JSON.stringify(selected));
+    // console.log('oncliclk'+JSON.stringify(e));
   },
   _handleBlur(e) {
-    console.log('blurblurblur'+e);
+    // console.log('blurblurblur'+e);
     //console.log(JSON.stringify(this._myrefers.getInstance().hideRefers()));
     
   },

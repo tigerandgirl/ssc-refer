@@ -1,6 +1,6 @@
 'use strict';
 
-import {pick,filter} from 'lodash';
+import {pick,filter,noop} from 'lodash';
 import React, {PropTypes} from 'react';
 
 import Table from './Table.react';
@@ -28,12 +28,13 @@ const ReferTable = React.createClass({
     /**
      * Provides a hook for customized rendering of menu item contents.
      */
-    renderMenuItemChildren: PropTypes.func,
+    onClickItem: PropTypes.func,
   },
 
   getDefaultProps() {
     return {
       newSelectionPrefix: 'New selection: ',
+      onClickItem: noop,
     };
   },
 
@@ -69,11 +70,16 @@ const ReferTable = React.createClass({
     }
 
     return (
-      <TableRender {...tableProps}>
+      <TableRender onClickItem={this._handleClickItem} {...tableProps}>
         {options}
       </TableRender>
     );
 
+  },
+
+  _handleClickItem(record) {
+    const {onClickItem} = this.props;
+    onClickItem(record);
   },
 
 

@@ -2,19 +2,27 @@
 
 import cx from 'classnames';
 import {noop} from 'lodash';
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 import Table from 'bee-table';
 
-import renderContainer from '../containers/renderContainer';
+//import renderContainer from '../containers/renderContainer';
 
 
-const BaseTableRender = React.createClass({
-  displayName: 'BaseTableRender',
+const TableRender = React.createClass({
+  displayName: 'TableRender',
+
+  propTypes: {
+    /**
+     * callback sub component onClick event
+     */
+    onClickItem: PropTypes.func,
+  },
 
   getDefaultProps() {
     return {
       onClick: noop,
+      onClickItem: noop,
     };
   },
 
@@ -38,17 +46,15 @@ const BaseTableRender = React.createClass({
   },
 
   _handleClick(record,index,e) {
-    const {disabled, onClick} = this.props;
-    console.log(JSON.stringify(record));
-    console.log(index);
+    const {disabled, onClickItem} = this.props;
     e.preventDefault();
-    !disabled && onClick(e);
+    !disabled && onClickItem(record);
   },
 
 
 });
 
-const TableRender = renderContainer(BaseTableRender);
+// const TableRender = renderContainer(BaseTableRender);
 
-export {BaseTableRender};
+// export {BaseTableRender};
 export default TableRender;

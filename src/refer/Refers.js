@@ -489,7 +489,7 @@ const Refers = React.createClass({
       <ReferTable
         {...menuProps}
         options={results}
-        renderMenuItemChildren={renderMenuItemChildren}
+        onClickItem={this._handleAddOption}
       />;
 
 
