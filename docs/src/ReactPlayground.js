@@ -12,8 +12,6 @@ const ReactDOM = require('react-dom');
 const Alert = require('react-bootstrap/lib/Alert');
 const SafeAnchor = require('react-bootstrap/lib/SafeAnchor');
 
-const Refer = require('../../src/Refer');
-const ReferComp = require('../../src/refer/ReferComp');
 const Refers = require('../../src/refer/Refers');
 
 const bootstrapUtils = require('react-bootstrap/lib/utils/bootstrapUtils');

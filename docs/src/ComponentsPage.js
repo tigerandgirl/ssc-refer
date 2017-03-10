@@ -10,8 +10,8 @@ import PageHeader from './PageHeader';
 import PageFooter from './PageFooter';
 import SubNav from './SubNav';
 
-import ReferSection from './sections/ReferSection';
-import ReferCompSection from './sections/ReferCompSection';
+import ReferListSection from './sections/ReferListSection';
+import ReferTableSection from './sections/ReferTableSection';
 import ReferTreeSection from './sections/ReferTreeSection';
 
 
@@ -20,7 +20,8 @@ import ReferTreeSection from './sections/ReferTreeSection';
 const sections = {
   layout: '#page-layout',
   refer: '#refer',
-  refercomp: '#refercomp',
+  referlist: '#referlist',
+  refertable: '#refertable',
   refertree: '#refertree',
 };
 /* eslint-enable indent */
@@ -139,12 +140,11 @@ const ComponentsPage = React.createClass({
                 <p className="lead"></p>
               </div>
 
+              {this.renderScrollSpy(sections.referlist)}
+              <ReferListSection />
 
-              {this.renderScrollSpy(sections.refer)}
-              <ReferSection />
-
-              {this.renderScrollSpy(sections.refercomp)}
-              <ReferCompSection />
+              {this.renderScrollSpy(sections.refertable)}
+              <ReferTableSection />
 
               {this.renderScrollSpy(sections.refertree)}
               <ReferTreeSection />
@@ -169,8 +169,8 @@ const ComponentsPage = React.createClass({
                   >
 
                     <SubNav href={sections.refer} text="Refer">
-                      <NavItem href={sections.refer}>参照</NavItem>
-                      <NavItem href={sections.refercomp}>高级参照</NavItem>
+                      <NavItem href={sections.referlist}>列表参照</NavItem>
+                      <NavItem href={sections.refertable}>表格参照</NavItem>
                       <NavItem href={sections.refertree}>树形参照</NavItem>
                     </SubNav>
                   </Nav>
