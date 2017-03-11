@@ -3016,7 +3016,6 @@ array.forEach(function (item) {
 })
 
 function lint(obj){
-  console.log(obj);
   treeData.forEach(function (item, index){
     if(item.pid == obj.id){
       if(!obj.children){
