@@ -50,8 +50,7 @@ const ReferExample = React.createClass({
   },
 
   _handleChange(selected) {
-    // console.log('oncliclk'+JSON.stringify(selected));
-    // console.log('oncliclk'+JSON.stringify(e));
+    console.log('oncliclk'+JSON.stringify(selected));
   },
   _handleBlur(e) {
     // console.log('blurblurblur'+e);
