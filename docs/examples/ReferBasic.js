@@ -48,8 +48,8 @@ const ReferExample = React.createClass({
   },
 
   handleChange(value,event) {
-    alert(JSON.stringify(event));
-    alert(JSON.stringify(value));
+    //alert(JSON.stringify(event));
+    //alert(JSON.stringify(value));
   },
 
   render() {
