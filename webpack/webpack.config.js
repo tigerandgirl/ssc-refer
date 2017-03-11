@@ -4,7 +4,7 @@ export default {
   ...baseConfig,
 
   entry: {
-    'ssc-comp': './src/index.js',
+    'ssc-refer': './src/index.js',
   },
 
   output: {
