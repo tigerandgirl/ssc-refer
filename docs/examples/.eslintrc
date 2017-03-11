@@ -7,11 +7,10 @@
     "React": false,
     "ReactDOM": false,
 
-    "Form": false,
-    "Grid": false,
-    "Refer": false,
-    "ReferNew": false,
     "ReferComp": false,
+    "ReferList": false,
+    "ReferTable": false,
+    "ReferTreeTable": false,
 
     "bootstrapUtils": false,
 
