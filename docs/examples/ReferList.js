@@ -13,7 +13,8 @@ const defaultData =   [{
 const multiple = false;
 
 const referConditions = {"refCode":"user","refType":"table","displayFields":["code","name","email"]};
-const referDataUrl = "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON";
+const referDataUrl = "http://20.1.75.51:8080/ficloud/refbase_ctr/queryRefJSON";
+const requestHeader = {"thd_secureKey":"ssc_fi_dev","thd_tenantId":"q46yu5wz","thd_usercode":"wanghuap2","thd_appId":"123",};
 
 const ReferExample = React.createClass({
   getInitialState() {
@@ -39,6 +40,7 @@ const ReferExample = React.createClass({
           placeholder="请选择..."
           referConditions={referConditions}
           referDataUrl={referDataUrl}
+          requestHeader={requestHeader}
           referType="list"
           defaultSelected={defaultData}
           ref={ref => this._myrefers = ref}

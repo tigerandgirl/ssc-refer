@@ -1,7 +1,7 @@
 'use strict';
 
 import cx from 'classnames';
-import {find, isEqual, noop, throttle} from 'lodash';
+import {find, isEqual, noop, throttle, forEach} from 'lodash';
 import onClickOutside from 'react-onclickoutside';
 import React, {PropTypes} from 'react';
 import {Popover, OverlayTrigger} from 'react-bootstrap';
@@ -25,7 +25,7 @@ import getOptionLabel from './utils/getOptionLabel';
 import getTruncatedOptions from './utils/getTruncatedOptions';
 import warn from './utils/warn';
 
-import request from 'superagent';
+import request from './utils/referAgent';
 
 import {DOWN, ESC, RETURN, TAB, UP} from './utils/keyCode';
 
@@ -150,6 +150,10 @@ const Refers = React.createClass({
      */
     referConditions: PropTypes.object.isRequired,
     /**
+     * Is debug mode.
+     */
+    requestHeader: PropTypes.object,
+    /**
      * set refer type, for example: list, cascader, table, treetable, default type is list.
      */
     referType: PropTypes.string.isRequired,
@@ -188,6 +192,7 @@ const Refers = React.createClass({
       selected: [],
       referDataUrl: "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON",
       referConditions: {},
+      requestHeader: noop,
       referType: 'list',
       debugMode:false,
     };
@@ -325,9 +330,13 @@ const Refers = React.createClass({
   },
 
   _loadData() {
-    const {referDataUrl,referConditions,debugMode} = this.props;
+    const {referDataUrl,referConditions,requestHeader,debugMode} = this.props;
     let _this = this;
-
+    if(requestHeader != noop) {
+      forEach(requestHeader,function(value, key) {
+        request.set(key,value);
+      })
+    }
     request.post(referDataUrl)
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(referConditions))
