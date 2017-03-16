@@ -157,6 +157,10 @@ const Refers = React.createClass({
      * set custom columns for table display, for example `[{"field":"name", "label":"名称"},{"field":"code","label":"编码"},{"field":"addr","label":"地址"}]`
      */
     tableColumns: PropTypes.array,
+    /**
+     * Is debug mode.
+     */
+    debugMode: PropTypes.bool,
 
   },
 
@@ -185,6 +189,7 @@ const Refers = React.createClass({
       referDataUrl: "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON",
       referConditions: {},
       referType: 'list',
+      debugMode:false,
     };
   },
 
@@ -320,7 +325,7 @@ const Refers = React.createClass({
   },
 
   _loadData() {
-    const {referDataUrl,referConditions} = this.props;
+    const {referDataUrl,referConditions,debugMode} = this.props;
     let _this = this;
 
     request.post(referDataUrl)
@@ -328,12 +333,26 @@ const Refers = React.createClass({
       .send(JSON.stringify(referConditions))
       .end(function (err,res) {
         if(err || !res.ok) {
+          if(debugMode) console.log('network error!' + err)
 
         } else {
           let data = JSON.parse(res.text);
-          if(typeof(data.data)==='object' && data.data.length>0) {
-            _this.setState({responseData: data.data});
+
+          if(data['success']===undefined) {
+            if(debugMode) console.log('response data format is error');
+            return false;
           }
+
+          if(!data['success']) {
+            if(debugMode) console.log('Message:' + data['message']);
+          } else {
+            if(typeof(data.data)==='object' && data.data.length>0) {
+              _this.setState({responseData: data.data});
+            } else {
+              if(debugMode) console.log('Message:' + 'Data format error');
+            }
+          }
+
         }
 
       });
@@ -371,6 +390,22 @@ const Refers = React.createClass({
 
   getData() {
     return this.state.selected;
+  },
+
+  getInputTextValue() {
+    const {
+      bsSize,
+      disabled,
+      labelKey,
+      minLength,
+      multiple,
+      name,
+      placeholder,
+      renderToken,
+    } = this.props;
+
+    const {activeIndex, activeItem, initialItem, selected, text} = this.state;
+    return getInputText({activeItem, labelKey, multiple, selected, text});
   },
 
   hideRefers() {

@@ -23,6 +23,7 @@ const sections = {
   referlist: '#referlist',
   refertable: '#refertable',
   refertreetable: '#refertreetable',
+  moreconditions: '#moreconditions',
 };
 /* eslint-enable indent */
 
@@ -148,8 +149,6 @@ const ComponentsPage = React.createClass({
 
               {this.renderScrollSpy(sections.refertreetable)}
               <ReferTreeTableSection />
-
-
 
             </div>
 

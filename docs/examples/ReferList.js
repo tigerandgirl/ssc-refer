@@ -5,7 +5,7 @@
 const defaultData =   [{
   "id": "02EDD0F9-F384-43BF-9398-5E5781DAC5D0",
   "code": "0502",
-  "name": "二车间",
+  "name": "三车间",
   "pid": "",
   "isLeaf": "true"
 }];
@@ -32,7 +32,7 @@ const ReferExample = React.createClass({
       <div>
         <Refers
           {...this.state}
-          emptyLabel={emptyLabel ? '' : undefined}
+          emptyLabel={''}
           labelKey="name"
           onChange={this._handleChange}
           onBlur={this._handleBlur}
@@ -54,7 +54,7 @@ const ReferExample = React.createClass({
   },
   _handleBlur(e) {
     // console.log('blurblurblur'+e);
-    //console.log(JSON.stringify(this._myrefers.getInstance().hideRefers()));
+    // console.log(JSON.stringify(this._myrefers.getInstance().getInputTextValue()));
     
   },
   
