@@ -57,8 +57,12 @@ const ReferExample = React.createClass({
   },
   _handleBlur(e) {
     // console.log('blurblurblur'+e);
-    // console.log(JSON.stringify(this._myrefers.getInstance().getInputTextValue()));
-    
+    // console.log(JSON.stringify(this._myrefers.getInstance().getInputTextValue())); //获取输入框里当前输入的值
+    // console.log(JSON.stringify(this._myrefers.getInstance().clear()); //清除
+    // console.log(JSON.stringify(this._myrefers.getInstance().getData())); //获取当前选中项
+    // console.log(JSON.stringify(this._myrefers.getInstance().hideRefers)); //隐藏参照
+    // console.log(JSON.stringify(this._myrefers.getInstance().hideRefers)); //显示参照
+
   },
   
 
