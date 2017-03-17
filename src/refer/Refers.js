@@ -25,7 +25,7 @@ import getOptionLabel from './utils/getOptionLabel';
 import getTruncatedOptions from './utils/getTruncatedOptions';
 import warn from './utils/warn';
 
-import request from './utils/referAgent';
+import request from 'superagent';
 
 import {DOWN, ESC, RETURN, TAB, UP} from './utils/keyCode';
 
@@ -332,12 +332,9 @@ const Refers = React.createClass({
   _loadData() {
     const {referDataUrl,referConditions,requestHeader,debugMode} = this.props;
     let _this = this;
-    if(requestHeader != noop) {
-      forEach(requestHeader,function(value, key) {
-        request.set(key,value);
-      })
-    }
+
     request.post(referDataUrl)
+      .set(requestHeader)
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(referConditions))
       .end(function (err,res) {
@@ -346,9 +343,8 @@ const Refers = React.createClass({
 
         } else {
           let data = JSON.parse(res.text);
-
           if(data['success']===undefined) {
-            if(debugMode) console.log('response data format is error');
+            if(debugMode) console.log('response data format is error,for example: no success key');
             return false;
           }
 
@@ -358,7 +354,7 @@ const Refers = React.createClass({
             if(typeof(data.data)==='object' && data.data.length>0) {
               _this.setState({responseData: data.data});
             } else {
-              if(debugMode) console.log('Message:' + 'Data format error');
+              if(debugMode) console.log('Message:' + 'Data format error, maybe no data !');
             }
           }
 
