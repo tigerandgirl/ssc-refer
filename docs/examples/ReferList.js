@@ -10,7 +10,7 @@ const defaultData =   [{
   "isLeaf": "true"
 }];
 
-const multiple = false;
+const multiple = true;
 
 const referConditions = {"refCode":"dept","refType":"table","displayFields":["code","name","email"]};
 const referDataUrl = "http://10.3.14.237:9527/refbase_ctr/queryRefJSON";
@@ -27,12 +27,10 @@ const ReferExample = React.createClass({
   },
 
   render() {
-    const {emptyLabel} = this.state;
 
     return (
       <div>
         <Refers
-          {...this.state}
           emptyLabel={''}
           labelKey="name"
           onChange={this._handleChange}

@@ -32,13 +32,10 @@ const ReferExample = React.createClass({
   },
 
   render() {
-    const {emptyLabel} = this.state;
 
     return (
       <div>
         <Refers
-          {...this.state}
-          emptyLabel={emptyLabel ? '' : undefined}
           labelKey="name"
           onChange={this._handleChange}
           onBlur={this._handleBlur}
