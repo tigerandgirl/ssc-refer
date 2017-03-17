@@ -45,6 +45,7 @@ const ReferExample = React.createClass({
           defaultSelected={defaultData}
           ref={ref => this._myrefers = ref}
           multiple={multiple}
+          debugMode={false}
         />
 
       </div>
