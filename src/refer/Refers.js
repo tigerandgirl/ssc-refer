@@ -192,7 +192,7 @@ const Refers = React.createClass({
       selected: [],
       referDataUrl: "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON",
       referConditions: {},
-      requestHeader: noop,
+      requestHeader: {},
       referType: 'list',
       debugMode:false,
     };
