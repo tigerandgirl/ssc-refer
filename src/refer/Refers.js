@@ -349,7 +349,7 @@ const Refers = React.createClass({
           }
 
           if(!data['success']) {
-            if(debugMode) console.log('Message:' + data['message']);
+            if(debugMode) console.log('response data success is false' + data['message']);
           } else {
             if(typeof(data.data)==='object' && data.data.length>0) {
               _this.setState({responseData: data.data});
