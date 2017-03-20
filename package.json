@@ -25,7 +25,8 @@
     "CHANGELOG.md",
     "lib",
     "dist",
-    "es"
+    "es",
+    "css"
   ],
   "keywords": [
     "react",

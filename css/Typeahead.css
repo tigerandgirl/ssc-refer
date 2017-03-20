@@ -42,3 +42,7 @@
 .has-aux.input-lg {
   padding-right: 42px;
 }
+
+.cursor-style {
+  cursor: pointer;
+}

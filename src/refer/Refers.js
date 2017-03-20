@@ -468,8 +468,8 @@ const Refers = React.createClass({
             selected={selected.slice()}
             value={getInputText({activeItem, labelKey, multiple, selected, text})}
           />
-        <span className="input-group-addon ">
-          <span className="glyphicon glyphicon-search"></span>
+        <span className="input-group-addon cursor-style" onClick={this._handleFocus}>
+          <span className="glyphicon glyphicon-search" ></span>
         </span>
       </div>
     );
