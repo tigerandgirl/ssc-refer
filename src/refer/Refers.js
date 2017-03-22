@@ -1,7 +1,7 @@
 'use strict';
 
 import cx from 'classnames';
-import {find, isEqual, noop, throttle, forEach} from 'lodash';
+import {find, isEqual, noop, throttle, forEach, isArray} from 'lodash';
 import onClickOutside from 'react-onclickoutside';
 import React, {PropTypes} from 'react';
 import {Popover, OverlayTrigger} from 'react-bootstrap';
@@ -351,7 +351,7 @@ const Refers = React.createClass({
           if(!data['success']) {
             if(debugMode) console.log('response data success is false' + data['message']);
           } else {
-            if(typeof(data.data)==='object' && data.data.length>0) {
+            if(isArray(data.data) && data.data.length>0) {
               _this.setState({responseData: data.data});
             } else {
               if(debugMode) console.log('Message:' + 'Data format error, maybe no data !');
