@@ -40,9 +40,10 @@ const ReferExample = React.createClass({
           referDataUrl={referDataUrl}
           referType="list"
           defaultSelected={defaultData}
-          ref={ref => this._myrefers = ref}
+          ref={ref => this._listrefers = ref}
           multiple={multiple}
           debugMode={true}
+          renderMenuItemChildren={this._renderMenuItemChildren}
         />
 
       </div>
@@ -50,17 +51,26 @@ const ReferExample = React.createClass({
   },
 
   _handleChange(selected) {
-   // console.log('oncliclk'+JSON.stringify(selected));
+   console.log('oncliclk'+JSON.stringify(selected));
   },
   _handleBlur(e) {
+    // alert(888);
     // console.log('blurblurblur'+e);
     // console.log(JSON.stringify(this._myrefers.getInstance().getInputTextValue())); //获取输入框里当前输入的值
     // console.log(JSON.stringify(this._myrefers.getInstance().clear()); //清除
     // console.log(JSON.stringify(this._myrefers.getInstance().getData())); //获取当前选中项
-    // console.log(JSON.stringify(this._myrefers.getInstance().hideRefers)); //隐藏参照
     // console.log(JSON.stringify(this._myrefers.getInstance().hideRefers)); //显示参照
+    // this._listrefers.getInstance().hideRefers();
 
   },
+  _renderMenuItemChildren(option, props, index) {
+    return [
+      <strong key="name">{option.name}</strong>,
+      <div key="code">
+        Code: {option.code}
+      </div>,
+    ];
+  }
   
 
 

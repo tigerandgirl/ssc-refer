@@ -595,7 +595,10 @@ const Refers = React.createClass({
   _handleBlur(e) {
     // Note: Don't hide the menu here, since that interferes with other actions
     // like making a selection by clicking on a menu item.
-    this.props.onBlur(e);
+    if(this.props.onBlur) {
+      this.props.onBlur(e);
+    }
+
   },
 
   _handleFocus(e) {
