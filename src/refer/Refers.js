@@ -517,43 +517,39 @@ const Refers = React.createClass({
         renderMenuItemChildren={renderMenuItemChildren}
       />;
 
-    const cascader = renderMenu ?
-      renderMenu(results, menuProps) :
-      <ReferList
-        {...menuProps}
-        options={results}
-        renderMenuItemChildren={renderMenuItemChildren}
-      />;
-
-    const table = renderMenu ?
-      renderMenu(results, menuProps) :
-      <ReferTable
-        {...menuProps}
-        options={results}
-        onClickItem={this._handleAddOption}
-      />;
-
-    const treetable = renderMenu ?
-      renderMenu(results, menuProps) :
-      <ReferTreeTable
-        {...menuProps}
-        options={results}
-        onClickItem={this._handleAddOption}
-      />;
-
-
     let typeObj = noop;
     switch (referType) {
       case  'list':
         typeObj= list;
         break;
       case 'cascader':
+        const cascader = renderMenu ?
+          renderMenu(results, menuProps) :
+          <ReferList
+            {...menuProps}
+            options={results}
+            renderMenuItemChildren={renderMenuItemChildren}
+          />;
         typeObj= cascader;
         break;
       case  'table':
+        const table = renderMenu ?
+          renderMenu(results, menuProps) :
+          <ReferTable
+            {...menuProps}
+            options={results}
+            onClickItem={this._handleAddOption}
+          />;
         typeObj= table;
         break;
       case 'treetable':
+        const treetable = renderMenu ?
+          renderMenu(results, menuProps) :
+          <ReferTreeTable
+            {...menuProps}
+            options={results}
+            onClickItem={this._handleAddOption}
+          />;
         typeObj= treetable;
         break;
       default:
@@ -605,7 +601,7 @@ const Refers = React.createClass({
     this.props.onFocus(e);
     const{multiple} = this.props;
     if(!multiple) {
-      this.clear();
+      // this.clear();
     }
     this._loadData();
     this.setState({showMenu: true});
