@@ -106,8 +106,8 @@ const ReactPlayground = React.createClass({
   mixins: [selfCleaningTimeout],
 
   propTypes: {
-    codeText: React.PropTypes.string.isRequired,
-    transformer: React.PropTypes.func
+    codeText: PropTypes.string.isRequired,
+    transformer: PropTypes.func
   },
 
   getDefaultProps() {
