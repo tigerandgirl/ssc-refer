@@ -3,7 +3,8 @@
 import cx from 'classnames';
 import {find, isEqual, noop, throttle, forEach, isArray} from 'lodash';
 import onClickOutside from 'react-onclickoutside';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {Popover, OverlayTrigger} from 'react-bootstrap';
 
 import ClearButton from './ClearButton.react';

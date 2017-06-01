@@ -4,6 +4,7 @@
 /* eslint-disable */
 const classNames = require('classnames');
 const React = require('react');
+const PropTypes = require('prop-types');
 const ReactDOM = require('react-dom');
 
 // Keep these in sync with src/index.js.

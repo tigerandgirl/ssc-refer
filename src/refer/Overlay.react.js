@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import {isEqual, throttle} from 'lodash';
-import React, {Children, cloneElement, PropTypes} from 'react';
+import React, { Children, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import {Portal} from 'react-overlays';
 import componentOrElement from 'react-prop-types/lib/componentOrElement';

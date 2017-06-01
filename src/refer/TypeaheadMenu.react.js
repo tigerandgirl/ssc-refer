@@ -2,7 +2,8 @@
 
 import {pick} from 'lodash';
 import Highlight from 'react-highlighter';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Menu from './Menu.react';
 import MenuItem from './MenuItem.react';

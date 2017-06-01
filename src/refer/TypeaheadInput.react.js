@@ -2,7 +2,8 @@
 
 import cx from 'classnames';
 import {head} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import TextInput from './TextInput.react';
 

@@ -1,7 +1,8 @@
 'use strict';
 
 import {pick,filter,noop} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import TreeTable from './TreeTable.react';
 import TreeTableRender from './TreeTableRender.react';

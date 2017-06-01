@@ -2,7 +2,8 @@
  * Created by Tiger on 17/2/22.
  */
 import {debounce} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const DEFAULT_DELAY_MS = 200;
 
