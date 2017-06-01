@@ -1,3 +1,11 @@
+## [v0.1.31]
+> 2017-06-01
+
+- **Bugfix:** 升级react-overlays ([#3])
+
+[v0.1.31]: https://github.com/yyssc/ssc-refer2/compare/v0.1.30...v0.1.31
+[#3]: https://github.com/yyssc/ssc-refer2/issues/3
+
 ## [v0.1.30]
 > 2017-06-01
 
