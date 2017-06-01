@@ -5,7 +5,7 @@ SSC 3.0 Refer组件
 ## 使用
 
 ```
-npm install ssc-refer --save
+npm install ssc-refer2 --save
 ```
 
 
@@ -14,7 +14,7 @@ npm install ssc-refer --save
 
 [API文档][documentation]中带有示例代码，并且可以在线编辑并运行代码。
 
-[documentation]: https://ssc-refer.github.io
+[documentation]: https://ssc-refer2.github.io
 [contributing]: CONTRIBUTING.md
 
 [build-badge]: https://travis-ci.org/yyssc/ssc-grid.svg?branch=master

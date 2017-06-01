@@ -1,12 +1,12 @@
 {
-  "name": "ssc-refer",
+  "name": "ssc-refer2",
   "version": "0.1.28",
   "description": "React refer component for SSC 3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tigerandgirl/ssc-refer"
+    "url": "git+https://github.com/yyssc/ssc-refer2"
   },
-  "homepage": "https://github.com/tigerandgirl/ssc-refer#readme",
+  "homepage": "https://github.com/yyssc/ssc-refer2#readme",
   "scripts": {
     "build": "babel-node tools/build-cli.js",
     "docs": "babel-node docs/dev-run.js",
@@ -40,7 +40,7 @@
     "react-dom": ">=0.14.0"
   },
   "bugs": {
-    "url": "https://github.com/tigerandgirl/ssc-refer/issues"
+    "url": "https://github.com/yyssc/ssc-refer2/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -136,6 +136,6 @@
   },
   "release-script": {
     "defaultDryRun": true,
-    "docsRepo": "git@github.com:ssc-refer/ssc-refer.github.io.git"
+    "docsRepo": "git@github.com:ssc-refer2/ssc-refer2.github.io.git"
   }
 }

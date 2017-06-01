@@ -30,15 +30,15 @@ const PageFooter = React.createClass({
                 </li>
               </ul>
             </div>
-            <p>Code licensed under <a href="https://github.com/tigerandgirl/ssc-refer/blob/master/LICENSE" target="_blank">MIT</a>.</p>
+            <p>Code licensed under <a href="https://github.com/yyssc/ssc-refer2/blob/master/LICENSE" target="_blank">MIT</a>.</p>
             <ul className="bs-docs-footer-links muted">
               <li>最新版 v{version}</li>
               <li>·</li>
-              <li><a href="https://github.com/tigerandgirl/ssc-refer">GitHub</a></li>
+              <li><a href="https://github.com/yyssc/ssc-refer2">GitHub</a></li>
               <li>·</li>
-              <li><a href="https://github.com/tigerandgirl/ssc-refer/issues?state=open">Issues</a></li>
+              <li><a href="https://github.com/yyssc/ssc-refer2/issues?state=open">Issues</a></li>
               <li>·</li>
-              <li><a href="https://github.com/tigerandgirl/ssc-refer/releases">Releases</a></li>
+              <li><a href="https://github.com/yyssc/ssc-refer2/releases">Releases</a></li>
             </ul>
           </div>
         </footer>

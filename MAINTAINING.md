@@ -55,7 +55,7 @@ grid@0.1.0 /home/chenyang/source/grid
 # 配置环境
 git clone git@git.yonyou.com:sscplatform/react_comp.git
 cd react_comp
-git remote add upstream https://github.com/tigerandgirl/ssc-refer.git
+git remote add upstream https://github.com/yyssc/ssc-refer2.git
 # 合并代码
 git fetch upstream
 git checkout develop
@@ -65,7 +65,7 @@ git push
 
 ```
 # 配置环境
-git clone git@github.com:tigerandgirl/ssc-refer.git
+git clone git@github.com:yyssc/ssc-refer2.git
 cd ssc-grid
 git remote add yonyou git@git.yonyou.com:sscplatform/react_comp.git
 # 合并代码
