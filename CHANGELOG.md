@@ -1,3 +1,11 @@
+## [v0.1.33]
+> 2017-06-01
+
+- **Bugfix:** Fix react `PropTypes` warning ([#5])
+
+[v0.1.33]: https://github.com/yyssc/ssc-refer2/compare/v0.1.32...v0.1.33
+[#5]: https://github.com/yyssc/ssc-refer2/issues/5
+
 ## [v0.1.32]
 > 2017-06-01
 
