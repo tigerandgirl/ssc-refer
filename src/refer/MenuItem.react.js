@@ -17,14 +17,13 @@ const BaseMenuItem = React.createClass({
 
   render() {
     const {active, children, className, disabled} = this.props;
-
     return (
       <li
         className={cx({
           'active': active,
           'disabled': disabled,
         }, className)}>
-        <a title={children}  onClick={this._handleClick} role="button">
+        <a onClick={this._handleClick} role="button">
           {children}
         </a>
       </li>
