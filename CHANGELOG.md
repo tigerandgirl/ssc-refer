@@ -1,3 +1,11 @@
+## [v0.1.35]
+> 2017-06-02
+
+- **Bugfix:** React.createClass is deprecated ([#7])
+
+[v0.1.35]: https://github.com/yyssc/ssc-refer2/compare/v0.1.34...v0.1.35
+[#7]: https://github.com/yyssc/ssc-refer2/issues/7
+
 ## [v0.1.34]
 > 2017-06-02
 
