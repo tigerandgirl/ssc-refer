@@ -4,6 +4,7 @@ import cx from 'classnames';
 import {head} from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import TextInput from './TextInput.react';
 
@@ -14,7 +15,7 @@ import {RIGHT, TAB} from './utils/keyCode';
  *
  * Handles a single selection from the Typeahead component.
  */
-const TypeaheadInput = React.createClass({
+const TypeaheadInput = createReactClass({
   displayName: 'TypeaheadInput',
 
   /**

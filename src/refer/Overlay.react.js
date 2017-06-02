@@ -2,6 +2,7 @@ import cx from 'classnames';
 import {isEqual, throttle} from 'lodash';
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import {findDOMNode} from 'react-dom';
 import {Portal} from 'react-overlays';
 import componentOrElement from 'react-prop-types/lib/componentOrElement';
@@ -20,7 +21,7 @@ function isBody(container) {
  * work for our needs. Specifically, the `Position` component doesn't provide
  * the customized placement we need.
  */
-const Overlay = React.createClass({
+const Overlay = createReactClass({
   displayName: 'Overlay',
 
   propTypes: {

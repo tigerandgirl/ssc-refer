@@ -3,6 +3,7 @@
 import cx from 'classnames';
 import React, {Children} from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import {Breadcrumb} from 'react-bootstrap';
 
@@ -18,7 +19,7 @@ const BaseContainer = props => (
  * Menu component that automatically handles pagination and empty state when
  * passed a set of filtered and truncated results.
  */
-const Table = React.createClass({
+const Table = createReactClass({
   displayName: 'Table',
 
   propTypes: {

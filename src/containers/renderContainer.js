@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import {findDOMNode} from 'react-dom';
 
 import getDisplayName from '../refer/utils/getDisplayName';
 import scrollIntoViewIfNeeded from '../refer/utils/scrollIntoViewIfNeeded';
 
 const renderContainer = Component => (
-  React.createClass({
+  createReactClass({
     displayName: `renderContainer(${getDisplayName(Component)})`,
 
     propTypes: {

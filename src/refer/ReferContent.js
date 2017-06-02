@@ -4,6 +4,7 @@ import {pick} from 'lodash';
 import Highlight from 'react-highlighter';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import Content from './Content';
 
@@ -11,7 +12,7 @@ import getOptionLabel from './utils/getOptionLabel';
 
 const MATCH_CLASS = 'bootstrap-typeahead-highlight';
 
-const ReferContent = React.createClass({
+const ReferContent = createReactClass({
   displayName: 'ReferContent',
 
   /**

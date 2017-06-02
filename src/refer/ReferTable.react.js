@@ -3,11 +3,12 @@
 import {pick,filter,noop} from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import Table from './Table.react';
 import TableRender from './TableRender.react';
 
-const ReferTable = React.createClass({
+const ReferTable = createReactClass({
   displayName: 'ReferTable',
 
   /**

@@ -3,11 +3,12 @@
 import {pick,filter,noop} from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import TreeTable from './TreeTable.react';
 import TreeTableRender from './TreeTableRender.react';
 
-const ReferTreeTable = React.createClass({
+const ReferTreeTable = createReactClass({
   displayName: 'ReferTreeTable',
 
   /**

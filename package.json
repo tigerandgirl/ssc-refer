@@ -118,6 +118,7 @@
     "bee-table": "^0.2.0",
     "bee-tree": "^0.1.1",
     "classnames": "^2.2.5",
+    "create-react-class": "^15.5.3",
     "enzyme": "^2.7.1",
     "glob": "^7.1.1",
     "invariant": "^2.2.2",
