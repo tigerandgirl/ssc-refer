@@ -126,7 +126,7 @@
     "lodash": "^4.17.4",
     "react-addons-update": "^15.4.2",
     "react-bootstrap": "^0.31.0",
-    "react-highlighter": "^0.3.3",
+    "react-highlighter": "^0.3.4",
     "react-input-autosize": "^1.1.0",
     "react-onclickoutside": "^5.9.0",
     "react-overlays": "^0.7.0",
