@@ -3,12 +3,13 @@
 import cx from 'classnames';
 import {noop} from 'lodash';
 import React from 'react';
+import createReactClass from 'create-react-class';
 
 import getOptionLabel from './utils/getOptionLabel';
 
 import menuItemContainer from '../containers/menuItemContainer';
 
-const BaseListItem = React.createClass({
+const BaseListItem = createReactClass({
   displayName: 'BaseListItem',
 
   getDefaultProps() {

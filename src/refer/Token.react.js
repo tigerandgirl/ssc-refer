@@ -2,7 +2,9 @@
 
 import cx from 'classnames';
 import {noop} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import tokenContainer from '../containers/tokenContainer';
 
@@ -12,7 +14,7 @@ import tokenContainer from '../containers/tokenContainer';
  * Individual token component, generally displayed within the TokenizerInput
  * component, but can also be rendered on its own.
  */
-const Token = React.createClass({
+const Token = createReactClass({
   displayName: 'Token',
 
   propTypes: {

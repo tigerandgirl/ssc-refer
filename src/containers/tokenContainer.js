@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import {omit} from 'lodash';
 import {findDOMNode} from 'react-dom';
 import onClickOutside from 'react-onclickoutside';
@@ -11,7 +12,7 @@ import {BACKSPACE} from '../refer/utils/keyCode';
  * be easily re-used.
  */
 const tokenContainer = Component => {
-  const WrappedComponent = React.createClass({
+  const WrappedComponent = createReactClass({
     displayName: `tokenContainer(${getDisplayName(Component)})`,
 
     getInitialState() {

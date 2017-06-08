@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import AutoAffix from 'react-overlays/lib/AutoAffix';
 import Waypoint from 'react-waypoint';
 
@@ -31,7 +32,7 @@ let ScrollSpy = ({ href, onBefore, onAfter }) => (
   />
 );
 
-const ValidationPage = React.createClass({
+const ValidationPage = createReactClass({
   getInitialState() {
     return {
       activeNavItemHref: null

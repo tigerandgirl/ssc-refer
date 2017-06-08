@@ -1,7 +1,9 @@
 'use strict';
 
 import cx from 'classnames';
-import React, {Children, PropTypes} from 'react';
+import React, {Children} from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 const BaseContainer = props => (
   <ul
@@ -15,7 +17,7 @@ const BaseContainer = props => (
  * Menu component that automatically handles pagination and empty state when
  * passed a set of filtered and truncated results.
  */
-const TreeTable = React.createClass({
+const TreeTable = createReactClass({
   displayName: 'TreeTable',
 
   propTypes: {

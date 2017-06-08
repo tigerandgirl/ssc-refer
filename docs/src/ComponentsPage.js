@@ -1,8 +1,11 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import AutoAffix from 'react-overlays/lib/AutoAffix';
 import Waypoint from 'react-waypoint';
 
-import {Nav, NavItem} from 'react-bootstrap';
+// import Nav from '../../src/Nav';
+// import NavItem from '../../src/NavItem';
+import { Nav, NavItem } from 'react-bootstrap';
 
 import Anchor from './Anchor';
 import NavMain from './NavMain';
@@ -40,7 +43,7 @@ let ScrollSpy = ({href, onBefore, onAfter}) => (
   />
 );
 
-const ComponentsPage = React.createClass({
+const ComponentsPage = createReactClass({
   getInitialState() {
     return {
       activeNavItemHref: null

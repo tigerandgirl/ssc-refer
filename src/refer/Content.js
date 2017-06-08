@@ -1,7 +1,9 @@
 'use strict';
 
 import cx from 'classnames';
-import React, {Children, PropTypes} from 'react';
+import React, { Children } from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import {BaseMenuItem} from './MenuItem.react';
 
@@ -17,7 +19,7 @@ const BaseContent = props => (
  * Menu component that automatically handles pagination and empty state when
  * passed a set of filtered and truncated results.
  */
-const Content = React.createClass({
+const Content = createReactClass({
   displayName: 'Content',
 
   propTypes: {

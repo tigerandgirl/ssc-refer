@@ -1,10 +1,12 @@
 'use strict';
 
 import cx from 'classnames';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import { HelpBlock } from 'react-bootstrap';
 
-const TextInput = React.createClass({
+const TextInput = createReactClass({
   propTypes: {
     /**
      * Specify the size of the input.

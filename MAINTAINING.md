@@ -13,12 +13,7 @@ sudo npm install -g babel-cli
 sudo npm install webpack -g ## 有些js文件中通过exec()直接执行command line
 ```
 
-运行测试代码
-
-```
-export CHROME_BIN=chromium-browser ## 如果操作系统为Linux，需要设定该环境变量
-npm test
-```
+## 开发组件
 
 以TDD开发模式运行测试代码
 
@@ -26,16 +21,41 @@ npm test
 npm run tdd
 ```
 
+## 开发文档
+
 以开发模式运行文档网站
 
 ```
 npm run docs
 ```
 
+```
+npm run docs-prod  # 运行非调试版文档本地服务器
+npm run docs-prod-unoptimized # 运行非调试版文档（未优化）本地服务器
+```
+
+## 测试
+
+运行测试代码
+
+```
+export CHROME_BIN=chromium-browser ## 如果操作系统为Linux，需要设定该环境变量
+export CHROME_BIN=google-chrome ## 如果操作系统为Linux，需要设定该环境变量
+npm test
+```
+
+## 编译
+
 编译代码以及文档
 
 ```
 npm run build
+```
+
+编译调试版文档到docs-built目录下
+
+```
+npm run docs-build
 ```
 
 ## 历史遗留问题
@@ -55,7 +75,7 @@ grid@0.1.0 /home/chenyang/source/grid
 # 配置环境
 git clone git@git.yonyou.com:sscplatform/react_comp.git
 cd react_comp
-git remote add upstream https://github.com/tigerandgirl/ssc-refer.git
+git remote add upstream https://github.com/yyssc/ssc-refer2.git
 # 合并代码
 git fetch upstream
 git checkout develop
@@ -65,7 +85,7 @@ git push
 
 ```
 # 配置环境
-git clone git@github.com:tigerandgirl/ssc-refer.git
+git clone git@github.com:yyssc/ssc-refer2.git
 cd ssc-grid
 git remote add yonyou git@git.yonyou.com:sscplatform/react_comp.git
 # 合并代码
@@ -107,6 +127,8 @@ release的流程在[这里](https://github.com/AlexKVal/release-script/blob/mast
 
 发版工具默认以`dry run`模式运行，防止误操作导致代码被`git push`到代码仓库，以及
 `npm publish`到npmjs.com中。
+
+在运行过`dry run`模式之后，由于`package.json`中的版本号被升级了，所以需要通过`git checkout -- .`来恢复原来的版本。（先确认local没有其他修改）
 
 你可以使用
 

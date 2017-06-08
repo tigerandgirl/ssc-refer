@@ -7,4 +7,4 @@ generated to HTML via node and then hosted it by pushing HTML to [GitHub
 Pages](http://pages.github.com/).
 
 Source can be found in the
-[ssc-grid](https://github.com/tigerandgirl/ssc-refer) repo.
+[ssc-refer2](https://github.com/yyssc/ssc-refer2) repo.

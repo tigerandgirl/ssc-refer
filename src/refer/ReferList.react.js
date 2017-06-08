@@ -1,14 +1,16 @@
 'use strict';
 
 import {pick,filter} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import List from './List.react';
 import ListItem from './ListItem.react';
 
 import {Breadcrumb} from 'react-bootstrap';
 
-const ReferList = React.createClass({
+const ReferList = createReactClass({
   displayName: 'ReferList',
 
   /**

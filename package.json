@@ -1,12 +1,12 @@
 {
-  "name": "ssc-refer",
-  "version": "0.1.29",
+  "name": "ssc-refer2",
+  "version": "0.1.35",
   "description": "React refer component for SSC 3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tigerandgirl/ssc-refer"
+    "url": "git+https://github.com/yyssc/ssc-refer2"
   },
-  "homepage": "https://github.com/tigerandgirl/ssc-refer#readme",
+  "homepage": "https://github.com/yyssc/ssc-refer2#readme",
   "scripts": {
     "build": "babel-node tools/build-cli.js",
     "docs": "babel-node docs/dev-run.js",
@@ -40,7 +40,7 @@
     "react-dom": ">=0.14.0"
   },
   "bugs": {
-    "url": "https://github.com/tigerandgirl/ssc-refer/issues"
+    "url": "https://github.com/yyssc/ssc-refer2/issues"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -94,10 +94,10 @@
     "nodemon": "^1.11.0",
     "output-file-sync": "^1.1.2",
     "portfinder": "^1.0.12",
-    "react": "0.14.8",
-    "react-addons-test-utils": "^0.14.8",
+    "react": "15.4.2",
+    "react-addons-test-utils": "^15.4.2",
     "react-component-metadata": "^3.1.0",
-    "react-dom": "0.14.8",
+    "react-dom": "15.4.2",
     "react-hot-loader": "^1.3.1",
     "react-router": "^3.0.2",
     "react-waypoint": "^5.0.3",
@@ -118,24 +118,24 @@
     "bee-table": "^0.2.0",
     "bee-tree": "^0.1.1",
     "classnames": "^2.2.5",
+    "create-react-class": "^15.5.3",
     "enzyme": "^2.7.1",
     "glob": "^7.1.1",
     "invariant": "^2.2.2",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
-    "react-addons-update": "^0.14.8",
-    "react-bootstrap": "^0.30.7",
-    "react-bootstrap-date-picker": "^4.0.0",
-    "react-highlighter": "^0.3.3",
+    "react-addons-update": "^15.4.2",
+    "react-bootstrap": "^0.31.0",
+    "react-highlighter": "^0.3.4",
     "react-input-autosize": "^1.1.0",
     "react-onclickoutside": "^5.9.0",
-    "react-overlays": "^0.6.11",
+    "react-overlays": "^0.7.0",
     "react-prop-types": "^0.4.0",
     "superagent": "^3.5.0",
     "warning": "^3.0.0"
   },
   "release-script": {
     "defaultDryRun": true,
-    "docsRepo": "git@github.com:ssc-refer/ssc-refer.github.io.git"
+    "docsRepo": "git@github.com:ssc-refer2/ssc-refer2.github.io.git"
   }
 }

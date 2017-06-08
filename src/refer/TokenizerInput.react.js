@@ -1,7 +1,9 @@
 'use strict';
 
 import cx from 'classnames';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 import {findDOMNode} from 'react-dom';
 import AutosizeInput from 'react-input-autosize';
 
@@ -16,7 +18,7 @@ import {BACKSPACE} from './utils/keyCode';
  * Accepts multiple selections from a Typeahead component and renders them as
  * tokens within an input.
  */
-const TokenizerInput = React.createClass({
+const TokenizerInput = createReactClass({
   displayName: 'TokenizerInput',
 
   /**

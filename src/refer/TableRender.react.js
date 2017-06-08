@@ -2,14 +2,16 @@
 
 import cx from 'classnames';
 import {noop} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import Table from 'bee-table';
 
 //import renderContainer from '../containers/renderContainer';
 
 
-const TableRender = React.createClass({
+const TableRender = createReactClass({
   displayName: 'TableRender',
 
   propTypes: {

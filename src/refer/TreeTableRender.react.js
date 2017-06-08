@@ -2,7 +2,9 @@
 
 import cx from 'classnames';
 import {noop} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import Table from 'bee-table';
 import Tree,{TreeNode} from 'bee-tree';
@@ -3037,7 +3039,7 @@ function lint(obj){
   }
 }
 
-const TreeTableRender = React.createClass({
+const TreeTableRender = createReactClass({
   displayName: 'TreeTableRender',
 
   propTypes: {

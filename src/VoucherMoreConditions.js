@@ -3,7 +3,8 @@
  */
 
 import classNames from 'classnames';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Button, Form, FormGroup, ControlLabel } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';

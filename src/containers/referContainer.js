@@ -2,7 +2,9 @@
  * Created by Tiger on 17/2/22.
  */
 import {debounce} from 'lodash';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 const DEFAULT_DELAY_MS = 200;
 
@@ -17,7 +19,7 @@ const DEFAULT_DELAY_MS = 200;
 const referContainer = Refers => {
   let _cache = {};
 
-  return React.createClass({
+  return createReactClass({
     propTypes: {
       /**
        * Delay, in milliseconds, before performing search.

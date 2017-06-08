@@ -2,7 +2,9 @@
 
 import {pick} from 'lodash';
 import Highlight from 'react-highlighter';
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
 import Menu from './Menu.react';
 import MenuItem from './MenuItem.react';
@@ -11,7 +13,7 @@ import getOptionLabel from './utils/getOptionLabel';
 
 const MATCH_CLASS = 'bootstrap-typeahead-highlight';
 
-const TypeaheadMenu = React.createClass({
+const TypeaheadMenu = createReactClass({
   displayName: 'TypeaheadMenu',
 
   /**

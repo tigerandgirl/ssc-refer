@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import createReactClass from 'create-react-class';
 
-const Anchor = React.createClass({
+const Anchor = createReactClass({
   propTypes: {
-    id: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number
+    id: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
     ])
   },
   render() {
