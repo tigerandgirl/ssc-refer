@@ -1,3 +1,12 @@
+## [v0.1.36]
+> 2017-06-08
+
+- **Chore** merge from ssc-refer@0.1.29 ([#8])
+  - [ssc-refer v0.1.28...v0.1.29](https://github.com/tigerandgirl/ssc-refer/compare/v0.1.28...v0.1.29)
+
+[v0.1.36]: https://github.com/yyssc/ssc-refer2/compare/v0.1.35...v0.1.36
+[#8]: https://github.com/yyssc/ssc-refer2/issues/8
+
 ## [v0.1.35]
 > 2017-06-02
 
