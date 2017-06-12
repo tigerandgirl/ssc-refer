@@ -1,7 +1,7 @@
 'use strict';
 
 import cx from 'classnames';
-import {find, isEqual, noop, throttle, forEach, isArray} from 'lodash';
+import {find, isEqual, noop, throttle, forEach, isArray, remove as _remove} from 'lodash';
 import onClickOutside from 'react-onclickoutside';
 import React, {PropTypes} from 'react';
 import {Popover, OverlayTrigger} from 'react-bootstrap';
@@ -329,8 +329,17 @@ const Refers = React.createClass({
     return this.state.responseData.filter(callback);
   },
 
+  getFilteredSelected(responseData,selectedData) {
+    _remove(responseData,function(item){
+      selectedData.map((obj) => {
+        if(isEqual(item,obj)) return true;
+      })
+    });
+    return responseData;
+  },
+
   _loadData() {
-    const {referDataUrl,referConditions,requestHeader,debugMode} = this.props;
+    const {referDataUrl,referConditions,requestHeader,debugMode,selected} = this.props;
     let _this = this;
 
     request.post(referDataUrl)
@@ -352,7 +361,8 @@ const Refers = React.createClass({
             if(debugMode) console.log('response data success is false' + data['message']);
           } else {
             if(isArray(data.data) && data.data.length>0) {
-              _this.setState({responseData: data.data});
+              
+              _this.setState({responseData: _this.getFilteredSelected(data.data,selected)});
             } else {
               if(debugMode) console.log('Message:' + 'Data format error, maybe no data !');
             }

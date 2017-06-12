@@ -2,13 +2,7 @@
  * Created by Tiger on 17/2/15.
  */
 
-const defaultData =   [{
-  "id": "02EDD0F9-F384-43BF-9398-5E5781DAC5D0",
-  "code": "0502",
-  "name": "三车间",
-  "pid": "",
-  "isLeaf": "true"
-}];
+const defaultData =   [{"id":"0039FB6F-7E72-455D-A7A3-189B6A5698F5","code":"0301","name":"市场部","pid":"22EA0EB9-FABA-4224-B290-5D041A1DF773","isLeaf":"true"}];
 
 const multiple = true;
 
@@ -39,7 +33,7 @@ const ReferExample = React.createClass({
           referConditions={referConditions}
           referDataUrl={referDataUrl}
           referType="list"
-          defaultSelected={defaultData}
+          selected={defaultData}
           ref={ref => this._listrefers = ref}
           multiple={multiple}
           debugMode={true}
