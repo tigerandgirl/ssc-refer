@@ -1,10 +1,9 @@
 'use strict';
 
 import cx from 'classnames';
-import {find, isEqual, noop, throttle, forEach, isArray, remove as _remove} from 'lodash';
+import {find, isEqual, noop, throttle, forEach, isArray} from 'lodash';
 import onClickOutside from 'react-onclickoutside';
 import React, {PropTypes} from 'react';
-import {Popover, OverlayTrigger} from 'react-bootstrap';
 
 import ClearButton from './ClearButton.react';
 import Loader from './Loader.react';
@@ -331,11 +330,11 @@ const Refers = React.createClass({
   getFilteredSelected(responseData,selectedData) {
     let result;
     result = responseData.filter(function(item){
-      let tempFlag = false;
-      selectedData.map((obj) => {
-        if(isEqual(item,obj)) tempFlag = true;
+      let flag = false;
+      selectedData.map(function(obj) {
+        if(JSON.stringify(obj) === JSON.stringify(item)) flag = true;
       })
-      return !tempFlag;
+      return !flag;
     })
     return result;
   },
