@@ -254,7 +254,6 @@ const Refers = React.createClass({
 
   componentWillReceiveProps(nextProps) {
     const {multiple, selected} = nextProps;
-
     if (!isEqual(selected, this.props.selected)) {
       // If new selections are passed in via props, treat the component as a
       // controlled input.
@@ -330,12 +329,13 @@ const Refers = React.createClass({
   },
 
   getFilteredSelected(responseData,selectedData) {
-    _remove(responseData,function(item){
+    return responseData.filter(function(item){
+      let tempFlag = false;
       selectedData.map((obj) => {
-        if(isEqual(item,obj)) return true;
+        if(isEqual(item,obj)) tempFlag = true;
       })
-    });
-    return responseData;
+      return !tempFlag;
+    })
   },
 
   _loadData() {
