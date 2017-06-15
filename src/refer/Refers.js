@@ -329,13 +329,15 @@ const Refers = React.createClass({
   },
 
   getFilteredSelected(responseData,selectedData) {
-    return responseData.filter(function(item){
+    let result;
+    result = responseData.filter(function(item){
       let tempFlag = false;
       selectedData.map((obj) => {
         if(isEqual(item,obj)) tempFlag = true;
       })
       return !tempFlag;
     })
+    return result;
   },
 
   _loadData() {
