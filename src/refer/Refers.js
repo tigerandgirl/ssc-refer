@@ -164,6 +164,10 @@ const Refers = React.createClass({
      * Is debug mode.
      */
     debugMode: PropTypes.bool,
+    /**
+     * search icon style
+     */
+    searchIcon: PropTypes.string,
 
   },
 
@@ -194,6 +198,7 @@ const Refers = React.createClass({
       requestHeader: {},
       referType: 'list',
       debugMode:false,
+      searchIcon: 'glyphicon glyphicon-search',
     };
   },
 
@@ -446,6 +451,7 @@ const Refers = React.createClass({
       name,
       placeholder,
       renderToken,
+      searchIcon,
     } = this.props;
     const {activeIndex, activeItem, initialItem, selected, text} = this.state;
     const Input = multiple ? TokenizerInput : TypeaheadInput;
@@ -480,7 +486,7 @@ const Refers = React.createClass({
             value={getInputText({activeItem, labelKey, multiple, selected, text})}
           />
         <span className="input-group-addon cursor-style" onClick={this._handleFocus}>
-          <span className="glyphicon glyphicon-search" ></span>
+          <span className={cx(this.state.searchIcon)}></span>
         </span>
       </div>
     );
