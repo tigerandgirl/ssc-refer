@@ -270,7 +270,7 @@ const Refers = React.createClass({
   },
 
   render() {
-    const {allowNew, className, dropup, labelKey, paginate} = this.props;
+    const {allowNew, className, dropup, labelKey, paginate, searchIcon} = this.props;
     const {shownResults, text} = this.state;
 
 
@@ -486,7 +486,7 @@ const Refers = React.createClass({
             value={getInputText({activeItem, labelKey, multiple, selected, text})}
           />
         <span className="input-group-addon cursor-style" onClick={this._handleFocus}>
-          <span className={cx(this.state.searchIcon)}></span>
+          <span className={cx(searchIcon)}></span>
         </span>
       </div>
     );
