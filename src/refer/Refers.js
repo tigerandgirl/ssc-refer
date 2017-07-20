@@ -198,7 +198,7 @@ const Refers = React.createClass({
       requestHeader: {},
       referType: 'list',
       debugMode:false,
-      searchIcon: 'glyphicon glyphicon-search',
+      searchIcon: 'glyphicon glyphicon-search refer-search-icon',
     };
   },
 
