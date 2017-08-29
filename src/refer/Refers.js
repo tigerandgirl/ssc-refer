@@ -366,7 +366,7 @@ const Refers = React.createClass({
           if(!data['success']) {
             if(debugMode) console.log('response data success is false' + data['message']);
           } else {
-            if(isArray(data.data) && data.data.length>0) {
+            if(isArray(data.data) && data.data.length>=0) {
               
               _this.setState({responseData: _this.getFilteredSelected(data.data,selected)});
             } else {
