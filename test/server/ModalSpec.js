@@ -4,8 +4,8 @@ import ReactDOMServer from 'react-dom/server';
 
 import Refers from '../../src/refer/Refers.js';
 
-const referConditions = {"refCode":"user","refType":"table","displayFields":["code","name","email"]};
-const referDataUrl = "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON";
+const referConditions = {'refCode': 'user', 'refType': 'table', 'displayFields': ['code', 'name', 'email']};
+const referDataUrl = 'http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON';
 
 describe('Refers', () => {
   it('Should be rendered on the server side', () => {

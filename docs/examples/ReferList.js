@@ -2,19 +2,19 @@
  * Created by Tiger on 17/2/15.
  */
 
-const defaultData =   [{
-  "id": "02EDD0F9-F384-43BF-9398-5E5781DAC5D0",
-  "code": "0502",
-  "name": "三车间",
-  "pid": "",
-  "isLeaf": "true"
+const defaultData = [{
+  'id': '02EDD0F9-F384-43BF-9398-5E5781DAC5D0',
+  'code': '0502',
+  'name': '三车间',
+  'pid': '',
+  'isLeaf': 'true'
 }];
 
 const multiple = true;
 
-const referConditions = {"refCode":"dept","refType":"table","displayFields":["code","name","email"]};
-const referDataUrl = "http://10.3.14.237:9527/refbase_ctr/queryRefJSON";
-const requestHeader = {"thd_secureKey":"ssc_fi_dev","thd_tenantId":"q46yu5wz","thd_usercode":"wanghuap2","thd_appId":"123",};
+const referConditions = {'refCode': 'project','refType': 'table','displayFields': ['code','name','id']};
+const referDataUrl = 'http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON';
+// const requestHeader = {'thd_secureKey': 'ssc_fi_dev','thd_tenantId': 'q46yu5wz','thd_usercode': 'wanghuap2','thd_appId': '123',};
 
 const ReferExample = React.createClass({
   getInitialState() {
@@ -42,7 +42,7 @@ const ReferExample = React.createClass({
           defaultSelected={defaultData}
           ref={ref => this._listrefers = ref}
           multiple={multiple}
-          debugMode={true}
+          debugMode
           renderMenuItemChildren={this._renderMenuItemChildren}
         />
 
@@ -51,7 +51,7 @@ const ReferExample = React.createClass({
   },
 
   _handleChange(selected) {
-   console.log('oncliclk'+JSON.stringify(selected));
+    console.log('oncliclk' + JSON.stringify(selected));
   },
   _handleBlur(e) {
     // alert(888);
@@ -71,7 +71,7 @@ const ReferExample = React.createClass({
       </div>,
     ];
   }
-  
+
 
 
 });

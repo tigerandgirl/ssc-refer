@@ -2,7 +2,7 @@ import Api from './api';
 
 export function requestUrl() {
   // 实际环境打开
-  return "10.3.14.239";
+  return '172.20.4.220';
 }
 
 let request = {
@@ -12,8 +12,8 @@ let request = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': 'http://' + requestUrl(),
   }
-}
+};
 
-const api = new Api(request)
+const api = new Api(request);
 
-export default api
+export default api;
