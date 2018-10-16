@@ -46,3 +46,11 @@
 .cursor-style {
   cursor: pointer;
 }
+
+.icon-show-disabled:before {
+ content: url(showdisabled.svg);
+}
+.icon-show-disabled.red:before{
+  content:url(showdisabled-red.svg)
+  /*"■";*/
+}

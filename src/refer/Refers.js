@@ -160,6 +160,14 @@ const Refers = React.createClass({
      * set custom columns for table display, for example `[{"field":"name", "label":"名称"},{"field":"code","label":"编码"},{"field":"addr","label":"地址"}]`
      */
     tableColumns: PropTypes.array,
+      /**
+       * set refer whether to display the Disabled button
+       */
+    showDisabledBtn: PropTypes.bool,
+      /**
+       * set refer whether to display Disabled data
+       */
+    showDisabled: PropTypes.bool,
     /**
      * Is debug mode.
      */
@@ -193,11 +201,13 @@ const Refers = React.createClass({
       onInputChange: noop,
       paginate: true,
       selected: [],
-      referDataUrl: "http://10.3.14.239/ficloud/refbase_ctr/queryRefJSON",
+      referDataUrl: 'http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON',
       referConditions: {},
       requestHeader: {},
       referType: 'list',
-      debugMode:false,
+      debugMode: false,
+      showDisabledBtn: true,
+      showDisabled: false,
       searchIcon: 'glyphicon glyphicon-search refer-search-icon',
     };
   },
@@ -219,7 +229,7 @@ const Refers = React.createClass({
   },
 
   getInitialState() {
-    const {defaultSelected, maxResults} = this.props;
+    const {defaultSelected, maxResults, showDisabled} = this.props;
 
     let selected = this.props.selected.slice();
     if (defaultSelected && defaultSelected.length) {
@@ -237,6 +247,7 @@ const Refers = React.createClass({
       isAbove: true,
       responseData: [],
       styleStatus: {position: 'relative'},
+      showDisabled: showDisabled === undefined ? false : showDisabled,
     };
   },
 
@@ -303,7 +314,7 @@ const Refers = React.createClass({
       </div>
     );
   },
-  
+
   _getFilteredResults() {
     const {
       caseSensitive,
@@ -345,29 +356,29 @@ const Refers = React.createClass({
   },
 
   _loadData() {
-    const {referDataUrl,referConditions,requestHeader,debugMode,selected} = this.props;
+    let {referDataUrl, referConditions, requestHeader, debugMode, selected} = this.props;
     let _this = this;
-
+    referConditions['showdisabled'] = _this.state.showDisabled;
     request.post(referDataUrl)
       .set(requestHeader)
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(referConditions))
-      .end(function (err,res) {
-        if(err || !res.ok) {
-          if(debugMode) console.log('network error!' + err)
+      .end(function(err, res) {
+        if (err || !res.ok) {
+          if (debugMode) console.log('network error!' + err);
 
         } else {
           let data = JSON.parse(res.text);
-          if(data['success']===undefined) {
-            if(debugMode) console.log('response data format is error,for example: no success key');
+          if (data['success'] === undefined) {
+            if (debugMode) console.log('response data format is error,for example: no success key');
             return false;
           }
 
-          if(!data['success']) {
-            if(debugMode) console.log('response data success is false' + data['message']);
+          if (!data['success']) {
+            if (debugMode) console.log('response data success is false' + data['message']);
           } else {
             if(isArray(data.data) && data.data.length>=0) {
-              
+
               _this.setState({responseData: _this.getFilteredSelected(data.data,selected)});
             } else {
               if(debugMode) console.log('Message:' + 'Data format error, maybe no data !');
@@ -452,6 +463,7 @@ const Refers = React.createClass({
       placeholder,
       renderToken,
       searchIcon,
+      showDisabledBtn,
     } = this.props;
     const {activeIndex, activeItem, initialItem, selected, text} = this.state;
     const Input = multiple ? TokenizerInput : TypeaheadInput;
@@ -488,6 +500,11 @@ const Refers = React.createClass({
         <span className="input-group-addon cursor-style" onClick={this._handleFocus}>
           <span className={cx(searchIcon)}></span>
         </span>
+          {
+            showDisabledBtn === false ? null : <span className="input-group-addon cursor-style" title={this.state.showDisabled ? '隐藏停用' : '显示停用'} onClick={this._handleEnable}>
+            <span className={this.state.showDisabled ? 'icon-show-disabled red' : 'icon-show-disabled' } ></span>
+            </span>
+          }
       </div>
     );
   },
@@ -536,8 +553,8 @@ const Refers = React.createClass({
 
     let typeObj = noop;
     switch (referType) {
-      case  'list':
-        typeObj= list;
+      case 'list':
+        typeObj = list;
         break;
       case 'cascader':
         const cascader = renderMenu ?
@@ -547,9 +564,9 @@ const Refers = React.createClass({
             options={results}
             renderMenuItemChildren={renderMenuItemChildren}
           />;
-        typeObj= cascader;
+        typeObj = cascader;
         break;
-      case  'table':
+      case 'table':
         const table = renderMenu ?
           renderMenu(results, menuProps) :
           <ReferTable
@@ -557,7 +574,7 @@ const Refers = React.createClass({
             options={results}
             onClickItem={this._handleAddOption}
           />;
-        typeObj= table;
+        typeObj = table;
         break;
       case 'treetable':
         const treetable = renderMenu ?
@@ -567,10 +584,10 @@ const Refers = React.createClass({
             options={results}
             onClickItem={this._handleAddOption}
           />;
-        typeObj= treetable;
+        typeObj = treetable;
         break;
       default:
-        typeObj= list;
+        typeObj = list;
     }
 
     return (
@@ -608,7 +625,7 @@ const Refers = React.createClass({
   _handleBlur(e) {
     // Note: Don't hide the menu here, since that interferes with other actions
     // like making a selection by clicking on a menu item.
-    if(this.props.onBlur) {
+    if (this.props.onBlur) {
       this.props.onBlur(e);
     }
 
@@ -617,13 +634,17 @@ const Refers = React.createClass({
   _handleFocus(e) {
     this.props.onFocus(e);
     const{multiple} = this.props;
-    if(!multiple) {
+    if (!multiple) {
       // this.clear();
     }
     this._loadData();
     this.setState({showMenu: true});
   },
-
+    _handleEnable(e) {
+    this._handleBlur(e)
+      const showDisabled = this.state.showDisabled === undefined ? this.getInitialState() : this.state.showDisabled;
+      this.setState({showDisabled: !showDisabled});
+    },
   _handleInitialItemChange(initialItem) {
     const currentItem = this.state.initialItem;
 
