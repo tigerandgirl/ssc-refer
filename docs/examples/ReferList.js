@@ -7,7 +7,7 @@ const defaultData =   [{"id":"0039FB6F-7E72-455D-A7A3-189B6A5698F5","code":"0301
 const multiple = true;
 
 const referConditions = {'refCode': 'dept','refType': 'table','displayFields': ['code','name','id']};
-const referDataUrl = 'http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON';
+const referDataUrl = 'http://172.20.4.220/refbase_ctr/queryRefJSON';
 // const requestHeader = {'thd_secureKey': 'ssc_fi_dev','thd_tenantId': 'q46yu5wz','thd_usercode': 'wanghuap2','thd_appId': '123',};
 
 const ReferExample = React.createClass({

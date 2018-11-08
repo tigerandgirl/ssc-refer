@@ -201,7 +201,7 @@ const Refers = React.createClass({
       onInputChange: noop,
       paginate: true,
       selected: [],
-      referDataUrl: 'http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON',
+      referDataUrl: 'http://172.20.4.220/refbase_ctr/queryRefJSON',
       referConditions: {},
       requestHeader: {},
       referType: 'list',

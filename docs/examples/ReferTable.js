@@ -19,7 +19,7 @@ const columns = [
 ]
 
 const referConditions = {"refCode":"user","refType":"table","displayFields":[]};
-const referDataUrl = "http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON";
+const referDataUrl = "http://172.20.4.220//refbase_ctr/queryRefJSON";
 
 const ReferExample = React.createClass({
   getInitialState() {
