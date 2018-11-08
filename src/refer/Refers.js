@@ -358,7 +358,7 @@ const Refers = React.createClass({
   _loadData() {
     let {referDataUrl, referConditions, requestHeader, debugMode, selected} = this.props;
     let _this = this;
-    referConditions['showdisabled'] = _this.state.showDisabled;
+    referConditions['disableshow'] = _this.state.showDisabled;
     request.post(referDataUrl)
       .set(requestHeader)
       .set('Content-Type', 'application/json')
