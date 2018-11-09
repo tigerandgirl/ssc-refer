@@ -165,6 +165,14 @@ const Refers = React.createClass({
        */
     showDisabledBtn: PropTypes.bool,
       /**
+       * 显示停用按钮名称，默认值：'显示停用'
+       */
+      showDisabledBtnText: PropTypes.string,
+      /**
+       * 隐藏停用按钮名称，默认值：'隐藏停用'
+       */
+      showDisabledBtnText_Not: PropTypes.string,
+      /**
        * set refer whether to display Disabled data
        */
     showDisabled: PropTypes.bool,
@@ -201,12 +209,14 @@ const Refers = React.createClass({
       onInputChange: noop,
       paginate: true,
       selected: [],
-      referDataUrl: 'http://172.20.4.220/refbase_ctr/queryRefJSON',
+      referDataUrl: 'http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON',
       referConditions: {},
       requestHeader: {},
       referType: 'list',
       debugMode: false,
       showDisabledBtn: true,
+      showDisabledBtnText:'显示停用',
+      showDisabledBtnText_Not:'隐藏停用',
       showDisabled: false,
       searchIcon: 'glyphicon glyphicon-search refer-search-icon',
     };
@@ -358,7 +368,7 @@ const Refers = React.createClass({
   _loadData() {
     let {referDataUrl, referConditions, requestHeader, debugMode, selected} = this.props;
     let _this = this;
-    referConditions['showdisabled'] = _this.state.showDisabled;
+    referConditions['disableshow'] = _this.state.showDisabled;
     request.post(referDataUrl)
       .set(requestHeader)
       .set('Content-Type', 'application/json')
@@ -464,6 +474,8 @@ const Refers = React.createClass({
       renderToken,
       searchIcon,
       showDisabledBtn,
+      showDisabledBtnText,
+      showDisabledBtnText_Not
     } = this.props;
     const {activeIndex, activeItem, initialItem, selected, text} = this.state;
     const Input = multiple ? TokenizerInput : TypeaheadInput;
@@ -501,7 +513,7 @@ const Refers = React.createClass({
           <span className={cx(searchIcon)}></span>
         </span>
           {
-            showDisabledBtn === false ? null : <span className="input-group-addon cursor-style" title={this.state.showDisabled ? '隐藏停用' : '显示停用'} onClick={this._handleEnable}>
+            showDisabledBtn === false ? null : <span className="input-group-addon cursor-style" title={this.state.showDisabled ? (showDisabledBtnText_Not || '隐藏停用') : (showDisabledBtnText || '显示停用')} onClick={this._handleEnable}>
             <span className={this.state.showDisabled ? 'icon-show-disabled red' : 'icon-show-disabled' } ></span>
             </span>
           }
