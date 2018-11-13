@@ -501,7 +501,7 @@ const Refers = React.createClass({
             onAdd={this._handleAddOption}
             onBlur={this._handleBlur}
             onChange={this._handleTextChange}
-            onFocus={this._handleFocus}
+            onFocus={this._handleFocus.bind(this, disabled)}
             onKeyDown={e => this._handleKeydown(results, e)}
             onRemove={this._handleRemoveOption}
             options={results}
@@ -509,13 +509,17 @@ const Refers = React.createClass({
             selected={selected.slice()}
             value={getInputText({activeItem, labelKey, multiple, selected, text})}
           />
-        <span className="input-group-addon cursor-style" onClick={this._handleFocus}>
+          <span className={"input-group-addon cursor-style"} onClick={this._handleFocus.bind(this, disabled)}
+                style={disabled ? {'cursor': 'no-drop'} : {}}>
           <span className={cx(searchIcon)}></span>
         </span>
           {
-            showDisabledBtn === false ? null : <span className="input-group-addon cursor-style" title={this.state.showDisabled ? (showDisabledBtnText_Not || '隐藏停用') : (showDisabledBtnText || '显示停用')} onClick={this._handleEnable}>
-            <span className={this.state.showDisabled ? 'icon-show-disabled red' : 'icon-show-disabled' } ></span>
-            </span>
+              disabled === true ? null : (showDisabledBtn === false && disabled === true ? null :
+                  <span className="input-group-addon cursor-style"
+                        title={this.state.showDisabled ? (showDisabledBtnText_Not || '隐藏停用') : (showDisabledBtnText || '显示停用')}
+                        onClick={this._handleEnable}>
+            <span className={this.state.showDisabled ? 'icon-show-disabled red' : 'icon-show-disabled'}></span>
+            </span>)
           }
       </div>
     );
@@ -643,7 +647,10 @@ const Refers = React.createClass({
 
   },
 
-  _handleFocus(e) {
+  _handleFocus(disabled,e) {
+    if(disabled){
+      return
+    }
     this.props.onFocus(e);
     const{multiple} = this.props;
     if (!multiple) {

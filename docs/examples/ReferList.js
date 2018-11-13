@@ -4,7 +4,7 @@
 
 const defaultData =   [{"id":"0039FB6F-7E72-455D-A7A3-189B6A5698F5","code":"0301","name":"市场部","pid":"22EA0EB9-FABA-4224-B290-5D041A1DF773","isLeaf":"true"}];
 
-const multiple = true;
+const multiple = false;
 
 const referConditions = {'refCode': 'dept','refType': 'table','displayFields': ['code','name','id']};
 const referDataUrl = 'http://172.20.4.220/ficloud/refbase_ctr/queryRefJSON';
@@ -26,6 +26,7 @@ const ReferExample = React.createClass({
       <div>
         <Refers
           emptyLabel={''}
+          disabled={false}
           labelKey="name"
           onChange={this._handleChange}
           onBlur={this._handleBlur}
