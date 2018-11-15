@@ -453,13 +453,13 @@ const Refers = React.createClass({
   hideRefers() {
     this.setState({
       styleStatus: {display: 'none'}
-    })
+    });
   },
 
   showRefers() {
     this.setState({
       styleStatus: {position: 'relative'}
-    })
+    });
   },
 
   _renderInput(results) {
@@ -513,11 +513,10 @@ const Refers = React.createClass({
                 style={disabled ? {'cursor': 'no-drop'} : {}}>
           <span className={cx(searchIcon)}></span>
         </span>
-          {
-              disabled === true ? null : (showDisabledBtn === false && disabled === true ? null :
-                  <span className="input-group-addon cursor-style"
-                        title={this.state.showDisabled ? (showDisabledBtnText_Not || '隐藏停用') : (showDisabledBtnText || '显示停用')}
-                        onClick={this._handleEnable}>
+          {showDisabledBtn === false ? null :
+                  (<span className="input-group-addon cursor-style" style={disabled ? {'cursor': 'no-drop'} : {}}
+                        title={this.state.showDisabled ? ( showDisabledBtnText_Not || '隐藏停用') : (showDisabledBtnText || '显示停用')}
+                         onClick={this._handleEnable.bind(this, disabled)}>
             <span className={this.state.showDisabled ? 'icon-show-disabled red' : 'icon-show-disabled'}></span>
             </span>)
           }
@@ -647,9 +646,9 @@ const Refers = React.createClass({
 
   },
 
-  _handleFocus(disabled,e) {
-    if(disabled){
-      return
+  _handleFocus(disabled, e) {
+    if (disabled) {
+      return;
     }
     this.props.onFocus(e);
     const{multiple} = this.props;
@@ -659,11 +658,14 @@ const Refers = React.createClass({
     this._loadData();
     this.setState({showMenu: true});
   },
-    _handleEnable(e) {
-    this._handleBlur(e)
-      const showDisabled = this.state.showDisabled === undefined ? this.getInitialState() : this.state.showDisabled;
-      this.setState({showDisabled: !showDisabled});
-    },
+  _handleEnable(disabled, e) {
+    if (disabled) {
+        return;
+      }
+    this._handleBlur(e);
+    const showDisabled = this.state.showDisabled === undefined ? this.getInitialState() : this.state.showDisabled;
+    this.setState({showDisabled: !showDisabled});
+  },
   _handleInitialItemChange(initialItem) {
     const currentItem = this.state.initialItem;
 
