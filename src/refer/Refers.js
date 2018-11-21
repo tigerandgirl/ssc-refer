@@ -664,7 +664,7 @@ const Refers = React.createClass({
       }
     this._handleBlur(e);
     const showDisabled = this.state.showDisabled === undefined ? this.getInitialState() : this.state.showDisabled;
-    this.setState({showDisabled: !showDisabled});
+    this.setState({showDisabled: !showDisabled , showMenu: false});
   },
   _handleInitialItemChange(initialItem) {
     const currentItem = this.state.initialItem;
