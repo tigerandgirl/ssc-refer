@@ -99,6 +99,7 @@ const TypeaheadInput = React.createClass({
         tabIndex={-1}>
         <TextInput
           {...inputProps}
+          title={value}
           autoComplete="off"
           className={cx('bootstrap-typeahead-input-main', {
             'has-selection': !!selected.length,
