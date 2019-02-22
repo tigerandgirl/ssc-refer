@@ -1,8 +1,8 @@
 'use strict';
 
 import cx from 'classnames';
-import React, {PropTypes} from 'react';
-import { HelpBlock } from 'react-bootstrap';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const TextInput = React.createClass({
   propTypes: {

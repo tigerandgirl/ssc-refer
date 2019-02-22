@@ -1,8 +1,8 @@
 'use strict';
 
 import cx from 'classnames';
-import React, {Children, PropTypes} from 'react';
-
+import React, {Children} from 'react';
+import PropTypes from 'prop-types';
 const BaseContainer = props => (
   <ul
     {...props}
@@ -58,7 +58,7 @@ const TreeTable = React.createClass({
     if (noResults && emptyLabel === '') {
       return null;
     }
-    
+
     const contents = children;
 
     return (

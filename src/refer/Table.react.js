@@ -1,8 +1,8 @@
 'use strict';
 
 import cx from 'classnames';
-import React, {Children, PropTypes} from 'react';
-
+import React, {Children} from 'react';
+import PropTypes from 'prop-types';
 import {Breadcrumb} from 'react-bootstrap';
 
 const BaseContainer = props => (
@@ -60,7 +60,7 @@ const Table = React.createClass({
     if (noResults && emptyLabel === '') {
       return null;
     }
-    
+
     const contents = children;
 
     return (
