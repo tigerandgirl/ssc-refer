@@ -214,7 +214,7 @@ const Refers = React.createClass({
       requestHeader: {},
       referType: 'list',
       debugMode: false,
-      showDisabledBtn: true,
+      showDisabledBtn: false,
       showDisabledBtnText:'显示停用',
       showDisabledBtnText_Not:'隐藏停用',
       showDisabled: false,
